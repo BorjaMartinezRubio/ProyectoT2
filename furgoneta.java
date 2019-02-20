@@ -14,12 +14,6 @@ public class furgoneta extends vehiculos {
 		this.carga=carga;
 	}
 
-	protected furgoneta(String matricula, String modelo, String bastidor) {
-		super(matricula, modelo, bastidor);
-		this.asientos=asientos;
-		this.carga=carga;
-	}
-
 	protected int getCarga() {
 		return carga;
 	}

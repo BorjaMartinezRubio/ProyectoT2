@@ -12,15 +12,6 @@ public class coche extends vehiculos {
 		
 	}
 
-	protected coche(String matricula, String modelo, String bastidor) {
-		super(matricula, modelo, bastidor);
-		this.asientos=asientos;
-		
-	}
-
-	
-	
-
 	protected boolean isAsientos() {
 		return asientos;
 	}
@@ -31,14 +22,7 @@ public class coche extends vehiculos {
 
 	@Override
 	public String toString() {
-	
-				String mensaje="El coche tiene asientos:" + asientos ;
+				String mensaje=". El coche tiene " + asientos  + " asientos";
 				return super.toString()+mensaje;
 	}
-
-
-
-
-
-
 }
