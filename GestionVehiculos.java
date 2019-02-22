@@ -38,17 +38,7 @@ public class GestionVehiculos {
 		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
 		while (vehiculoIterator.hasNext()) {
 			vehiculos vehiculo1 = vehiculoIterator.next();
-			if (vehiculo1 instanceof camion) {
-				System.out.println(((camion) vehiculo1).toString());
-			} else if (vehiculo1 instanceof coche) {
-				System.out.println(((coche) vehiculo1).toString());
-			} else if (vehiculo1 instanceof furgoneta) {
-				System.out.println(((furgoneta) vehiculo1).toString());
-			} else if (vehiculo1 instanceof moto) {
-				System.out.println(((moto) vehiculo1).toString());
-			} else if (vehiculo1 instanceof super_coche) {
-				System.out.println(((super_coche) vehiculo1).toString());
-			}
+			System.out.println(vehiculo1.toString());
 
 		}
 	}
@@ -63,17 +53,7 @@ public class GestionVehiculos {
 				v3 = vehiculo1;
 				System.out.println("Vehiculo encontrado");
 				control = false;
-				if (v3 instanceof camion) {
-					System.out.println(((camion) v3).toString());
-				} else if (v3 instanceof coche) {
-					System.out.println(((coche) v3).toString());
-				} else if (v3 instanceof furgoneta) {
-					System.out.println(((furgoneta) v3).toString());
-				} else if (v3 instanceof moto) {
-					System.out.println(((moto) v3).toString());
-				} else if (v3 instanceof super_coche) {
-					System.out.println(((super_coche) v3).toString());
-				}
+				System.out.println(v3.toString());
 			}
 		}
 		if (control) {
