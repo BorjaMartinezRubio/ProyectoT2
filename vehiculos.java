@@ -80,7 +80,7 @@ public abstract class vehiculos {
 	public String toString() {
 		return "El nombre del cliente es: " + nombreDueño + "El color del vehiculo es:" + color + ",la matricula es: "
 				+ matricula + ",el modelo es:" + modelo + ",el numero de bastidor es:  bastidor=" + bastidor
-				+ "y su estado es:" + estado;
+				+ "y su estado es: " + estado;
 	}
 
 }

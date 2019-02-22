@@ -53,23 +53,33 @@ public class GestionVehiculos {
 		}
 	}
 
-	/*protected vehiculos buscarCoche(String bastidor) {
+	protected vehiculos buscarVehiculos(String bastidor) {
 		boolean control = true;
 		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
-		vehiculos c3 = null;
+		vehiculos v3 = null;
 		while (vehiculoIterator.hasNext() && control) {
 			vehiculos vehiculo1 = vehiculoIterator.next();
-			if (vehiculo1.getMatricula().equalsIgnoreCase(bastidor)) {
-				c3 = vehiculo1;
-				control = false;
+			if (vehiculo1.getBastidor().equalsIgnoreCase(bastidor)) {
+				v3 = vehiculo1;
 				System.out.println("Vehiculo encontrado");
-				System.out.println(c3.toString());
+				control = false;
+				if (v3 instanceof camion) {
+					System.out.println(((camion) v3).toString());
+				} else if (v3 instanceof coche) {
+					System.out.println(((coche) v3).toString());
+				} else if (v3 instanceof furgoneta) {
+					System.out.println(((furgoneta) v3).toString());
+				} else if (v3 instanceof moto) {
+					System.out.println(((moto) v3).toString());
+				} else if (v3 instanceof super_coche) {
+					System.out.println(((super_coche) v3).toString());
+				}
 			}
 		}
-		return c3;
-	}*/
-	
-	
+		if (control) {
+			System.out.println("Vehiculo no encontrado");
+		}
+		return v3;
+	}
 
-	
 }

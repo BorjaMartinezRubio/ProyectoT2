@@ -1,22 +1,22 @@
 
 
 public class coche extends vehiculos {
-	private boolean asientos;
+	private int asientos;
 	private  coche() {
 		
 	}
 
-	protected coche(String color, String matricula, String modelo, String bastidor, String estado,boolean asientos) {
+	protected coche(String color, String matricula, String modelo, String bastidor, String estado,int asientos) {
 		super(color, matricula, modelo, bastidor, estado);
 		this.asientos=asientos;
 		
 	}
 
-	protected boolean isAsientos() {
+	protected int isAsientos() {
 		return asientos;
 	}
 
-	protected void setAsientos(boolean asientos) {
+	protected void setAsientos(int asientos) {
 		this.asientos = asientos;
 	}
 
