@@ -6,9 +6,19 @@ public class super_coche extends vehiculos {
 	private super_coche() {
 
 	}
-
-	protected super_coche(String color, String matricula, String modelo, String bastidor, String estado) {
-		super(color, matricula, modelo, bastidor, estado);
+	
+	/**
+	 * @param color
+	 * @param matricula
+	 * @param marca
+	 * @param modelo
+	 * @param bastidor
+	 * @param estado
+	 * @param super_motor
+	 */
+	protected super_coche(String color, String matricula, String marca, String modelo, String bastidor, String estado,
+			int super_motor) {
+		super(color, matricula, marca, modelo, bastidor, estado);
 		this.super_motor = super_motor;
 	}
 

@@ -5,13 +5,22 @@ public class moto extends vehiculos {
 	protected moto() {
 
 	}
-
-	protected moto(String color, String matricula, String modelo, String bastidor, String estado, boolean equipamieto) {
-		super(color, matricula, modelo, bastidor, estado);
-		this.equipamiento = equipamiento;
-
-	}
 	
+	/**
+	 * @param color
+	 * @param matricula
+	 * @param marca
+	 * @param modelo
+	 * @param bastidor
+	 * @param estado
+	 * @param equipamiento
+	 */
+	protected moto(String color, String matricula, String marca, String modelo, String bastidor, String estado,
+			boolean equipamiento) {
+		super(color, matricula, marca, modelo, bastidor, estado);
+		this.equipamiento = equipamiento;
+	}
+
 	@Override
 	public String toString() {
 		String mensaje = "La moto tien  [equipamiento: " + equipamiento;

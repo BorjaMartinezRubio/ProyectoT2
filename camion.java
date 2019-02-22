@@ -8,12 +8,25 @@ public class camion extends vehiculos {
 
 	}
 
-	protected camion(String color, String matricula, String modelo, String bastidor, String estado) {
-		super(color, matricula, modelo, bastidor, estado);
+	/**
+	 * @param color
+	 * @param matricula
+	 * @param marca
+	 * @param modelo
+	 * @param bastidor
+	 * @param estado
+	 * @param estructura_carga
+	 * @param peso
+	 * @param pMA
+	 */
+	protected camion(String color, String matricula, String marca, String modelo, String bastidor, String estado,
+			boolean estructura_carga, int peso, int pMA) {
+		super(color, matricula, marca, modelo, bastidor, estado);
 		this.estructura_carga = estructura_carga;
 		this.peso = peso;
-		this.PMA = PMA;
+		PMA = pMA;
 	}
+
 
 	/**
 	 * @return the estructura_carga

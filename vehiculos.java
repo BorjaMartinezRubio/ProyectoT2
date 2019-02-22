@@ -1,10 +1,9 @@
 
 public abstract class vehiculos {
 
-	protected String nombreDueño;
-
 	protected String color;
 	protected String matricula;
+	protected String marca;
 	protected String modelo;
 	protected String bastidor;
 	protected String estado;
@@ -13,17 +12,11 @@ public abstract class vehiculos {
 
 	}
 
-	protected vehiculos(String matricula, String modelo, String bastidor) {
-
-		this.matricula = matricula;
-		this.modelo = modelo;
-		this.bastidor = bastidor;
-	}
-
-	protected vehiculos(String color, String matricula, String modelo, String bastidor, String estado) {
+	protected vehiculos(String color, String matricula, String marca, String modelo, String bastidor, String estado) {
 
 		this.color = color;
 		this.matricula = matricula;
+		this.marca = marca;
 		this.modelo = modelo;
 		this.bastidor = bastidor;
 		this.estado = estado;
@@ -43,6 +36,14 @@ public abstract class vehiculos {
 
 	protected void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+
+	protected String getMarca() {
+		return marca;
+	}
+
+	protected void setMarca(String marca) {
+		this.marca = marca;
 	}
 
 	protected String getModelo() {
@@ -69,18 +70,9 @@ public abstract class vehiculos {
 		this.estado = estado;
 	}
 
-	public String getNombreDueño() {
-		return nombreDueño;
-	}
-
-	public void setNombreDueño(String nombreDueño) {
-		this.nombreDueño = nombreDueño;
-	}
-
 	public String toString() {
-		return "El nombre del cliente es: " + nombreDueño + "El color del vehiculo es:" + color + ",la matricula es: "
-				+ matricula + ",el modelo es:" + modelo + ",el numero de bastidor es:  bastidor=" + bastidor
-				+ "y su estado es: " + estado;
+		return "El color del vehiculo es:" + color + ",la matricula es: " + matricula + ", la marca es: " + marca + ", el modelo es:" + modelo
+				+ ",el numero de bastidor es:  bastidor=" + bastidor + "y su estado es: " + estado;
 	}
 
 }

@@ -8,10 +8,21 @@ public class furgoneta extends vehiculos {
 		
 	}
 
-	protected furgoneta(String color, String matricula, String modelo, String bastidor, String estado) {
-		super(color, matricula, modelo, bastidor, estado);
-		this.asientos=asientos;
-		this.carga=carga;
+	/**
+	 * @param color
+	 * @param matricula
+	 * @param marca
+	 * @param modelo
+	 * @param bastidor
+	 * @param estado
+	 * @param carga
+	 * @param asientos
+	 */
+	protected furgoneta(String color, String matricula, String marca, String modelo, String bastidor, String estado,
+			int carga, int asientos) {
+		super(color, matricula, marca, modelo, bastidor, estado);
+		this.carga = carga;
+		this.asientos = asientos;
 	}
 
 	protected int getCarga() {
@@ -32,7 +43,7 @@ public class furgoneta extends vehiculos {
 
 	@Override
 	public String toString() {
-		String mensaje= "Lafurgoneta tiene una carga de : " + carga + ",los asientos son: " + asientos ;
+		String mensaje= "La furgoneta tiene una carga de: " + carga + ", los asientos son: " + asientos ;
 		return super.toString()+mensaje;
 	}
 
