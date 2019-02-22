@@ -15,6 +15,19 @@ public class GestionPersonas {
 		
 		listaPersonas.remove(posicion);
 	}
+	
+	//Mostrar clientes
+	private void mostrarClientes () {
+		
+		for(int i = 0; i< listaPersonas.size(); i++) {
+			
+			if (listaPersonas.get(i) instanceof clientes) {
+				
+				System.out.println((listaPersonas.get(i)).toString());
+				
+			}
+		}
+	}
 
 	// Buscar la posicion en el arraylist de la persona deseada
 	private int buscarPosicion(String dni) {
@@ -89,7 +102,7 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres gilipollas o que te pasa? No sabes que no eres un empleado?");
+				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un empleado?");
 			}
 
 			break;
@@ -104,7 +117,7 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres gilipollas o que te pasa? No sabes que no eres un empleado?");
+				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un empleado?");
 			}
 
 			break;
@@ -117,7 +130,7 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres gilipollas o que te pasa? No sabes que no eres un empleado?");
+				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un empleado?");
 			}
 
 			break;
@@ -130,7 +143,7 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres gilipollas o que te pasa? No sabes que no eres un empleado?");
+				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un empleado?");
 			}
 
 			break;
@@ -143,7 +156,7 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres gilipollas o que te pasa? No sabes que no eres un cliente?");
+				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
 			}
 
 			break;
@@ -156,7 +169,7 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres gilipollas o que te pasa? No sabes que no eres un cliente?");
+				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
 			}
 
 			break;
@@ -169,7 +182,7 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres gilipollas o que te pasa? No sabes que no eres un cliente?");
+				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
 			}
 
 			break;
@@ -184,7 +197,7 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres gilipollas o que te pasa? No sabes que no eres un cliente?");
+				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
 			}
 
 			break;
@@ -197,14 +210,14 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres gilipollas o que te pasa? No sabes que no eres un cliente?");
+				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
 			}
 
 			break;
 
 		default:
 
-			System.out.println(" Tonto que eres tonto, esa opcion no es ninguna de las disponibles ");
+			System.out.println(" ********** que eres **********, esa opcion no es ninguna de las disponibles ");
 
 			break;
 			

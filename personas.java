@@ -4,6 +4,7 @@ public abstract class personas {
 	//Atributos
 	protected String nombre, apellidos, dni;
 	protected int telefono, edad;
+	
 	protected String getNombre() {
 		return nombre;
 	}
@@ -34,8 +35,6 @@ public abstract class personas {
 	protected void setEdad(int edad) {
 		this.edad = edad;
 	}
-	
-	
 	
 	
 
