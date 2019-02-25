@@ -32,7 +32,7 @@ public class super_coche extends vehiculos {
 
 	@Override
 	public String toString() {
-		String mensaje = "El super_coche tiene un super_motor: " + super_motor;
+		String mensaje = ". El super coche tiene un super_motor de: " + super_motor + "cv";
 		return super.toString() + mensaje;
 	}
 

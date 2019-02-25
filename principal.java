@@ -9,8 +9,10 @@ public class principal {
 		ges.insertarVehiculos(c1);
 		ges.mostrarVehiculos();
 		ges.buscarVehiculos("0545112346fx5654");
-		ges.buscarPosicion("0545112346fx5654");
-
+		int posicion=ges.buscarPosicion("0545112346fx5654");
+		String valorModificar="color";
+		String datoNuevo="naranja";
+		ges.modificarVehiculos(posicion, valorModificar, datoNuevo);
 	}
 
 }
