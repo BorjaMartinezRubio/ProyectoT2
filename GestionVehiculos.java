@@ -43,7 +43,7 @@ public class GestionVehiculos {
 		}
 	}
 
-	protected vehiculos buscarVehiculos(String bastidor) {
+	protected vehiculos buscarVehiculos(String bastidor) { //necesario para asignar vehiculos
 		boolean control = true;
 		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
 		vehiculos v3 = null;
@@ -70,7 +70,7 @@ public class GestionVehiculos {
 				i = listaVehiculos.size();
 				System.out.println("Bastidor encontrado");
 			} else if (i == listaVehiculos.size() - 1) {
-				System.out.println("Ese bastidor no est· asignado a ningun vehiculo registrado. ");
+				System.out.println("Ese bastidor no est√° asignado a ningun vehiculo registrado. ");
 			}
 		}
 		return posicion;
@@ -221,7 +221,7 @@ public class GestionVehiculos {
 			}
 			break;
 		default:
-			System.out.println("La opciÛn que has introducido es erronea");
+			System.out.println("La opci√≥n que has introducido es erronea");
 			break;
 		}
 	}
