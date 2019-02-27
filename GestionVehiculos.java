@@ -109,7 +109,7 @@ public class GestionVehiculos {
 			break;
 		case "estado":
 			if (datoNuevo.equalsIgnoreCase("nuevo") || datoNuevo.equalsIgnoreCase("seminuevo")
-					|| datoNuevo.equalsIgnoreCase("vendido")) {
+					|| datoNuevo.equalsIgnoreCase("alquilado")) {
 				(listaVehiculos.get(posicion)).setColor(datoNuevo);
 				System.out.println("Estado modificado correctamente");
 				System.out.println("Estado nuevo: " + (listaVehiculos.get(posicion)).getEstado());

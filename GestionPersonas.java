@@ -1,23 +1,35 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GestionPersonas {
 
-	ArrayList<personas> listaPersonas = new ArrayList<personas>();
+	private ArrayList<personas> listaPersonas = new ArrayList<personas>();
 
 	// Crear una nueva persona
-	private void crearPersona(personas p1) {
-
-		listaPersonas.add(p1);
-
+	protected void crearPersona(personas p1) {
+		boolean control = true;
+		Iterator<personas> personasIterator = listaPersonas.iterator();
+		while (personasIterator.hasNext() && control) {
+			personas p2 = personasIterator.next();
+			if (p2.getDni().equalsIgnoreCase(p1.getDni())) {
+				control = false;
+			}
+		}
+		if (control) {
+			listaPersonas.add(p1);
+			System.out.println("Persona insertada correctamente");
+		} else {
+			System.out.println("No se ha podido insertar a la persona");
+		}
 	}
 	
-	private void borrarPersona (int posicion) {
+	protected void borrarPersona (int posicion) {
 		
 		listaPersonas.remove(posicion);
 	}
 	
 	//Mostrar clientes
-	private void mostrarClientes () {
+	protected void mostrarClientes () {
 		
 		for(int i = 0; i< listaPersonas.size(); i++) {
 			
@@ -30,7 +42,7 @@ public class GestionPersonas {
 	}
 
 	// Buscar la posicion en el arraylist de la persona deseada
-	private int buscarPosicion(String dni) {
+	protected int buscarPosicion(String dni) {
 
 		int posicion = -1;
 
@@ -56,7 +68,7 @@ public class GestionPersonas {
 	}
 
 	// Modificar persona
-	private void modificarPersona(int posicion, String queModificar, String loModificado) {
+	protected void modificarPersona(int posicion, String queModificar, String loModificado) {
 
 		int numModificado;
 		double numModificado2;
@@ -204,14 +216,11 @@ public class GestionPersonas {
 
 		case "contraseña":
 
-			if (listaPersonas.get(posicion) instanceof clientes) {
 
-				((clientes) (listaPersonas.get(posicion))).setContraseña(loModificado);
 
-			} else {
+				(listaPersonas.get(posicion)).setContraseña(loModificado);
 
-				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
-			}
+			
 
 			break;
 

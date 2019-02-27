@@ -3,9 +3,9 @@ import java.util.Iterator;
 
 public class revisiones {
 	
-	protected ArrayList <empleados> listaEmpleados = new ArrayList <empleados>();
-	protected String fecha, descripcion;
-	protected int id;
+	private ArrayList <empleados> listaEmpleados = new ArrayList <empleados>();
+	private String fecha, descripcion;
+	private int id;
 	
 	protected revisiones(String fecha, String descripcion, int id) {
 		super();

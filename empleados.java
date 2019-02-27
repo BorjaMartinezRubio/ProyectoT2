@@ -2,9 +2,9 @@
 public class empleados extends personas {
 
 	// Atributos
-	protected double antigüedad, salario;
-	protected String puesto; // Dependiendo del puesto podrá modificar unas cosas u otras
-	protected String especialidad; // Especialista en coches, motos, camiones...
+	private double antigüedad, salario;
+	private String puesto; // Dependiendo del puesto podrá modificar unas cosas u otras
+	private String especialidad; // Especialista en coches, motos, camiones...
 
 	/**
 	 * @param nombre
