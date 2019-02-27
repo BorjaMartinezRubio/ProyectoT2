@@ -5,3 +5,10 @@
 /vehiculos.class
 /GestionPersonas.class
 /validezDNI.class
+/GestionVehiculos.class
+/camion.class
+/coche.class
+/furgoneta.class
+/moto.class
+/super_coche.class
+/revisiones.class
