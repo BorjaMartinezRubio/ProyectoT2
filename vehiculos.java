@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class vehiculos {
 
@@ -9,6 +11,7 @@ public abstract class vehiculos {
 	protected String estado;
 	protected double precioDia;
 	protected String combustible;
+	ArrayList <revisiones> listaRevisiones = new ArrayList <revisiones>();	
 
 	protected vehiculos() {
 
@@ -137,6 +140,27 @@ public abstract class vehiculos {
 	 */
 	protected void setCombustible(String combustible) {
 		this.combustible = combustible;
+	}
+
+	protected ArrayList<revisiones> getListaRevisiones() {
+		return listaRevisiones;
+	}
+
+	protected void setListaRevisiones(ArrayList<revisiones> listaRevisiones) {
+		this.listaRevisiones = listaRevisiones;
+	}
+	
+	protected void mostrarRevisiones() {
+		Iterator<revisiones> revisionesIterator = listaRevisiones.iterator();
+		while (revisionesIterator.hasNext()) {
+			revisiones R1 = revisionesIterator.next();
+			System.out.println(R1.toString());
+		}
+	}
+	
+	protected void modificarRevisiones() {
+		
+		
 	}
 
 	public String toString() {

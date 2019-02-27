@@ -237,4 +237,10 @@ public class GestionVehiculos {
 			break;
 		}
 	}
+	
+	protected void añadirRevision (int posicion, revisiones R1) {
+		
+		listaVehiculos.get(posicion).getListaRevisiones().add(R1);
+		
+	}
 }

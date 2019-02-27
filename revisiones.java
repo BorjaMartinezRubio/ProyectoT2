@@ -1,10 +1,18 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class revisiones {
 	
 	protected ArrayList <empleados> listaEmpleados = new ArrayList <empleados>();
 	protected String fecha, descripcion;
 	protected int id;
+	
+	protected revisiones(String fecha, String descripcion, int id) {
+		super();
+		this.fecha = fecha;
+		this.descripcion = descripcion;
+		this.id = id;
+	}
 	
 	protected String getFecha() {
 		return fecha;
@@ -25,6 +33,7 @@ public class revisiones {
 	protected void setId(int id) {
 		this.id = id;
 	}
+	
 	
 	public String toString() {
 		String mensaje;
