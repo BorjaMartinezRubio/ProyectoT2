@@ -33,6 +33,14 @@ public class clientes extends personas {
 			return contraseña;
 		}
 
+		protected vehiculos getV1() {
+			return V1;
+		}
+
+		protected void setV1(vehiculos v1) {
+			V1 = v1;
+		}
+
 		protected void setContraseña(String contraseña) {
 			this.contraseña = contraseña;
 		}
@@ -44,5 +52,12 @@ public class clientes extends personas {
 		protected void setTipConductor(char tipConductor) {
 			TipConductor = tipConductor;
 		}
+		
+		protected void AsignarVehiculo (vehiculos V1) {
+			
+			this.V1=V1;
+			
+		}
+		
 
 }
