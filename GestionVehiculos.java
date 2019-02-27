@@ -233,7 +233,7 @@ public class GestionVehiculos {
 			}
 			break;
 		default:
-			System.out.println("La opciÃ³n que has introducido es erronea");
+			System.out.println("La opción que has introducido es erronea");
 			break;
 		}
 	}

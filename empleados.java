@@ -3,9 +3,29 @@ public class empleados extends personas {
 
 	// Atributos
 	protected double antigüedad, salario;
-	protected String puesto; // ¿Utilizamos puestos para que dependiendo de este pueda realizar cambios de
-								// unas cosas u otras?
+	protected String puesto; // Dependiendo del puesto podrá modificar unas cosas u otras
 	protected String especialidad; // Especialista en coches, motos, camiones...
+
+	/**
+	 * @param nombre
+	 * @param apellidos
+	 * @param dni
+	 * @param contraseña
+	 * @param telefono
+	 * @param edad
+	 * @param antigüedad
+	 * @param salario
+	 * @param puesto
+	 * @param especialidad
+	 */
+	protected empleados(String nombre, String apellidos, String dni, String contraseña, int telefono, int edad,
+			double antigüedad, double salario, String puesto, String especialidad) {
+		super(nombre, apellidos, dni, contraseña, telefono, edad);
+		this.antigüedad = antigüedad;
+		this.salario = salario;
+		this.puesto = puesto;
+		this.especialidad = especialidad;
+	}
 
 	protected double getAntigüedad() {
 		return antigüedad;
@@ -39,13 +59,20 @@ public class empleados extends personas {
 		this.especialidad = especialidad;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see personas#toString()
+	 */
 	@Override
 	public String toString() {
-
-		return "empleados [nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + ", telefono=" + telefono
-				+ ", edad=" + edad + "antigüedad=" + antigüedad + ", salario=" + salario + ", puesto=" + puesto
-				+ ", especialidad=" + especialidad + "]";
-
+		// TODO Auto-generated method stub
+		String mensaje;
+		mensaje = "\n\tAños de antigüedad: " + antigüedad;
+		mensaje += "\n\tSalario: " + salario;
+		mensaje += "\n\tPuesto: " + puesto;
+		mensaje += "\n\tEspecialidad: " + especialidad;
+		return super.toString() + mensaje;
 	}
 
 }
