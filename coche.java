@@ -1,9 +1,9 @@
 
-
 public class coche extends vehiculos {
 	private int asientos;
-	private  coche() {
-		
+
+	private coche() {
+
 	}
 
 	/**
@@ -16,12 +16,10 @@ public class coche extends vehiculos {
 	 * @param asientos
 	 */
 	protected coche(String color, String matricula, String marca, String modelo, String bastidor, String estado,
-			int asientos) {
-		super(color, matricula, marca, modelo, bastidor, estado);
+			double precioDia, String combustible, int asientos) {
+		super(color, matricula, marca, modelo, bastidor, estado, precioDia, combustible);
 		this.asientos = asientos;
 	}
-
-
 
 	protected int getAsientos() {
 		return asientos;
@@ -33,7 +31,8 @@ public class coche extends vehiculos {
 
 	@Override
 	public String toString() {
-				String mensaje=". El coche tiene " + asientos  + " asientos";
-				return super.toString()+mensaje;
+		String mensaje;
+		mensaje = "\n\tNúmero de asientos: " + asientos;
+		return super.toString() + mensaje;
 	}
 }

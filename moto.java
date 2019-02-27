@@ -16,9 +16,9 @@ public class moto extends vehiculos {
 	 * @param equipamiento
 	 * @param cilindrada
 	 */
-	protected moto(String color, String matricula, String marca, String modelo, String bastidor, String estado,
+	protected moto(String color, String matricula, String marca, String modelo, String bastidor, String estado, double precioDia, String combustible,
 			boolean equipamiento, int cilindrada) {
-		super(color, matricula, marca, modelo, bastidor, estado);
+		super(color, matricula, marca, modelo, bastidor, estado, precioDia, combustible);
 		this.equipamiento = equipamiento;
 		this.cilindrada = cilindrada;
 	}
@@ -54,12 +54,12 @@ public class moto extends vehiculos {
 	@Override
 	public String toString() {
 		String mensaje="";
-		if (equipamiento = true) {
-			mensaje=". La moto tiene equipamiento incluido";
-		} else if (equipamiento=false) {
-			mensaje=". La moto no tiene equipamiento incluido";
+		if (equipamiento) {
+			mensaje="\n\tLa moto tiene equipamiento incluido";
+		} else if (!equipamiento) {
+			mensaje="\n\tLa moto no tiene equipamiento incluido";
 		}
-		mensaje+=" y tiene: " + cilindrada + "cc";
+		mensaje+="\n\tCilindrada: " + cilindrada + "cc";
 		return super.toString() + mensaje;
 	}
 

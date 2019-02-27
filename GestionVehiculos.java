@@ -43,7 +43,7 @@ public class GestionVehiculos {
 		}
 	}
 
-	protected vehiculos buscarVehiculos(String bastidor) { //necesario para asignar vehiculos
+	protected vehiculos buscarVehiculos(String bastidor) { // necesario para asignar vehiculos
 		boolean control = true;
 		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
 		vehiculos v3 = null;
@@ -78,6 +78,7 @@ public class GestionVehiculos {
 
 	protected void modificarVehiculos(int posicion, String valorModificar, String datoNuevo) { // pendiente de mejoras
 		int numeroNuevo;
+		double decimalNuevo;
 		boolean boolNuevo;
 		String valorModificarMinusculas = valorModificar.toLowerCase();
 		switch (valorModificarMinusculas) {
@@ -115,6 +116,17 @@ public class GestionVehiculos {
 			} else {
 				System.out.println("El valor introducido no es valido");
 			}
+			break;
+		case "precio dia":
+			decimalNuevo=Double.parseDouble(datoNuevo);
+			(listaVehiculos.get(posicion)).setPrecioDia(decimalNuevo);
+			System.out.println("Precio por dia modificado correctamente");
+			System.out.println("Nuevo precio por dia: " + (listaVehiculos.get(posicion)).getPrecioDia());
+			break;
+		case "combustible":
+			(listaVehiculos.get(posicion)).setCombustible(datoNuevo);
+			System.out.println("Tipo de combustible modificado correctamente");
+			System.out.println("Tipo de combustible nuevo: " + (listaVehiculos.get(posicion)).getCombustible());
 			break;
 		case "asientos":
 			if (listaVehiculos.get(posicion) instanceof coche) {

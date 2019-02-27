@@ -6,7 +6,7 @@ public class super_coche extends vehiculos {
 	private super_coche() {
 
 	}
-	
+
 	/**
 	 * @param color
 	 * @param matricula
@@ -17,8 +17,8 @@ public class super_coche extends vehiculos {
 	 * @param super_motor
 	 */
 	protected super_coche(String color, String matricula, String marca, String modelo, String bastidor, String estado,
-			int super_motor) {
-		super(color, matricula, marca, modelo, bastidor, estado);
+			double precioDia, String combustible, int super_motor) {
+		super(color, matricula, marca, modelo, bastidor, estado, precioDia, combustible);
 		this.super_motor = super_motor;
 	}
 
@@ -32,7 +32,8 @@ public class super_coche extends vehiculos {
 
 	@Override
 	public String toString() {
-		String mensaje = ". El super coche tiene un super_motor de: " + super_motor + "cv";
+		String mensaje;
+		mensaje = "\n\tLa potencia del motor del supercoche es: " + super_motor + "cv";
 		return super.toString() + mensaje;
 	}
 

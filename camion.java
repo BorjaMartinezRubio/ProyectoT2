@@ -2,7 +2,7 @@
 public class camion extends vehiculos {
 	private boolean estructura_carga;
 	private int peso;
-	private int PMA;
+	private int PMA; //peso maximo autorizado
 
 	protected camion() {
 
@@ -19,9 +19,9 @@ public class camion extends vehiculos {
 	 * @param peso
 	 * @param pMA
 	 */
-	protected camion(String color, String matricula, String marca, String modelo, String bastidor, String estado,
+	protected camion(String color, String matricula, String marca, String modelo, String bastidor, String estado, double precioDia, String combustible, 
 			boolean estructura_carga, int peso, int pMA) {
-		super(color, matricula, marca, modelo, bastidor, estado);
+		super(color, matricula, marca, modelo, bastidor, estado, precioDia, combustible);
 		this.estructura_carga = estructura_carga;
 		this.peso = peso;
 		PMA = pMA;
@@ -72,9 +72,14 @@ public class camion extends vehiculos {
 
 	@Override
 	public String toString() {
-		String mensaje = ". El camion tiene estructura_carga: " + estructura_carga + ",su peso es:" + peso
-				+ " y su PMA es: " + PMA;
-
+		String mensaje="";
+		if (estructura_carga) {
+			mensaje = "\n\tEl camion tiene estructura de carga";
+		} else if (!estructura_carga) {
+			mensaje = "\n\tEl camion no tiene estructura de carga";
+		}
+		mensaje += "\n\tPMA: " + PMA;
+		mensaje += "\n\tPeso: " + peso;
 		return super.toString() + mensaje;
 
 	}

@@ -1,11 +1,10 @@
 
-
 public class furgoneta extends vehiculos {
 	private int carga;
 	private int asientos;
-	
+
 	protected furgoneta() {
-		
+
 	}
 
 	/**
@@ -19,8 +18,8 @@ public class furgoneta extends vehiculos {
 	 * @param asientos
 	 */
 	protected furgoneta(String color, String matricula, String marca, String modelo, String bastidor, String estado,
-			int carga, int asientos) {
-		super(color, matricula, marca, modelo, bastidor, estado);
+			double precioDia, String combustible, int carga, int asientos) {
+		super(color, matricula, marca, modelo, bastidor, estado, precioDia, combustible);
 		this.carga = carga;
 		this.asientos = asientos;
 	}
@@ -33,19 +32,20 @@ public class furgoneta extends vehiculos {
 		this.carga = carga;
 	}
 
-	protected  int getAsientos() {
+	protected int getAsientos() {
 		return asientos;
 	}
 
-	protected  void setAsientos(int asientos) {
+	protected void setAsientos(int asientos) {
 		this.asientos = asientos;
 	}
 
 	@Override
 	public String toString() {
-		String mensaje= "La furgoneta tiene una carga de: " + carga + ", los asientos son: " + asientos ;
-		return super.toString()+mensaje;
+		String mensaje;
+		mensaje = "\n\tCarga maxima: " + carga;
+		mensaje += "\n\tNumero de asientos: " + asientos;
+		return super.toString() + mensaje;
 	}
-
 
 }
