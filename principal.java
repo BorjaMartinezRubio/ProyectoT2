@@ -12,7 +12,9 @@ public class principal {
 		revisiones R1 = new revisiones ("69-69-6969", " Tu coche no vale para nada, tiralo", 1);
 		gesV.añadirRevision(posicion, R1);
 		c1.mostrarRevisiones();
-
+		int posicion2=c1.buscarRevision(1);
+		c1.modificarRevisiones(posicion2, "descripcion", "Tu coche es peor que un Fiat Multipla");
+		c1.mostrarRevisiones();
 	}
 
 }

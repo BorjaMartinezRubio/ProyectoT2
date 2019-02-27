@@ -150,6 +150,20 @@ public abstract class vehiculos {
 		this.listaRevisiones = listaRevisiones;
 	}
 	
+	protected int buscarRevision(int id) {
+		int posicion = -1;
+		for (int i = 0; i < listaRevisiones.size(); i++) {
+			if (id==listaRevisiones.get(i).getId()) {
+				posicion = i;
+				i = listaRevisiones.size();
+				System.out.println("ID encontrada");
+			} else if (i == listaRevisiones.size() - 1) {
+				System.out.println("La revisión que estás buscando no existe");
+			}
+		}
+		return posicion;
+	}
+	
 	protected void mostrarRevisiones() {
 		Iterator<revisiones> revisionesIterator = listaRevisiones.iterator();
 		while (revisionesIterator.hasNext()) {
@@ -158,8 +172,23 @@ public abstract class vehiculos {
 		}
 	}
 	
-	protected void modificarRevisiones() {
-		
+	protected void modificarRevisiones(int posicion, String valorModificar, String datoNuevo) {
+		String valorModificarMinusculas = valorModificar.toLowerCase();
+		switch (valorModificarMinusculas) {
+		case "fecha":
+			(listaRevisiones.get(posicion)).setFecha(datoNuevo);
+			System.out.println("Fecha modificada correctamente");
+			System.out.println("Fecha nueva: " + listaRevisiones.get(posicion).getFecha());
+			break;
+		case "descripcion":
+			(listaRevisiones.get(posicion)).setDescripcion(datoNuevo);
+			System.out.println("Descripción modificada correctamente");
+			System.out.println("Descripción nueva: " + listaRevisiones.get(posicion).getDescripcion());
+			break;
+		default:
+			System.out.println("La opción que has introducido no es válida");
+			break;
+		}
 		
 	}
 
