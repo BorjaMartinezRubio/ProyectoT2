@@ -22,21 +22,30 @@ public class GestionPersonas {
 			System.out.println("No se ha podido insertar a la persona");
 		}
 	}
-	
-	protected void borrarPersona (int posicion) {
-		
-		listaPersonas.remove(posicion);
+
+	protected void borrarPersona(String dni) {
+
+		boolean control = true;
+		Iterator<personas> personasIterator = listaPersonas.iterator();
+		while (personasIterator.hasNext() && control) {
+			personas persona1 = personasIterator.next();
+			if (persona1.getDni().equalsIgnoreCase(dni)) {
+				listaPersonas.remove(persona1);
+				control = false;
+				System.out.println("Persona eliminada correctamente");
+			}
+		}
 	}
-	
-	//Mostrar clientes
-	protected void mostrarClientes () {
-		
-		for(int i = 0; i< listaPersonas.size(); i++) {
-			
+
+	// Mostrar clientes
+	protected void mostrarClientes() {
+
+		for (int i = 0; i < listaPersonas.size(); i++) {
+
 			if (listaPersonas.get(i) instanceof clientes) {
-				
+
 				System.out.println((listaPersonas.get(i)).toString());
-				
+
 			}
 		}
 	}
@@ -79,12 +88,16 @@ public class GestionPersonas {
 		case "nombre":
 
 			(listaPersonas.get(posicion)).setNombre(loModificado);
+			System.out.println("Nombre modificado correctamente");
+			System.out.println("Nuevo nombre: " + listaPersonas.get(posicion).getNombre());
 
 			break;
 
 		case "Apellidos":
 
 			(listaPersonas.get(posicion)).setApellidos(loModificado);
+			System.out.println("Apellidos modificados correctamente");
+			System.out.println("Nuevos apellidos: " + listaPersonas.get(posicion).getApellidos());
 
 			break;
 
@@ -93,6 +106,8 @@ public class GestionPersonas {
 			numModificado = Integer.parseInt(loModificado);
 
 			(listaPersonas.get(posicion)).setTelefono(numModificado);
+			System.out.println("Teléfono modificada correctamente");
+			System.out.println("Teléfono nuevo: " + listaPersonas.get(posicion).getTelefono());
 
 			break;
 
@@ -101,6 +116,8 @@ public class GestionPersonas {
 			numModificado = Integer.parseInt(loModificado);
 
 			(listaPersonas.get(posicion)).setEdad(numModificado);
+			System.out.println("Edad modificada correctamente");
+			System.out.println("Edad nueva: " + listaPersonas.get(posicion).getEdad());
 
 			break;
 
@@ -111,10 +128,12 @@ public class GestionPersonas {
 				numModificado2 = Double.parseDouble(loModificado);
 
 				((empleados) (listaPersonas.get(posicion))).setAntigüedad(numModificado2);
+				System.out.println("Antigüedad modificada correctamente");
+				System.out.println("Nueva antigüedad: " + ((empleados) (listaPersonas.get(posicion))).getAntigüedad());
 
 			} else {
 
-				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un empleado?");
+				System.out.println("Esta operación no es válida para este tipo de persona");
 			}
 
 			break;
@@ -126,10 +145,12 @@ public class GestionPersonas {
 				numModificado2 = Double.parseDouble(loModificado);
 
 				((empleados) (listaPersonas.get(posicion))).setSalario(numModificado2);
+				System.out.println("Salario modificado correctamente");
+				System.out.println("Nuevo salario: " + ((empleados) (listaPersonas.get(posicion))).getSalario());
 
 			} else {
 
-				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un empleado?");
+				System.out.println("Esta operación no es válida para este tipo de persona");
 			}
 
 			break;
@@ -139,10 +160,12 @@ public class GestionPersonas {
 			if (listaPersonas.get(posicion) instanceof empleados) {
 
 				((empleados) (listaPersonas.get(posicion))).setPuesto(loModificado);
+				System.out.println("Puesto de trabajo modificado correctamente");
+				System.out.println("Nuevo puesto de trabajo: " + ((empleados) (listaPersonas.get(posicion))).getPuesto());
 
 			} else {
 
-				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un empleado?");
+				System.out.println("Esta operación no es válida para este tipo de persona");
 			}
 
 			break;
@@ -152,10 +175,12 @@ public class GestionPersonas {
 			if (listaPersonas.get(posicion) instanceof empleados) {
 
 				((empleados) (listaPersonas.get(posicion))).setEspecialidad(loModificado);
+				System.out.println("Especialidad modificada correctamente");
+				System.out.println("Nueva especialidad: " + ((empleados) (listaPersonas.get(posicion))).getEspecialidad());
 
 			} else {
 
-				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un empleado?");
+				System.out.println("Esta operación no es válida para este tipo de persona");
 			}
 
 			break;
@@ -168,7 +193,7 @@ public class GestionPersonas {
 
 			} else {
 
-				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
+				System.out.println("Esta operación no es válida para este tipo de persona");
 			}
 
 			break;
@@ -178,10 +203,12 @@ public class GestionPersonas {
 			if (listaPersonas.get(posicion) instanceof clientes) {
 
 				((clientes) (listaPersonas.get(posicion))).setNumCarnet(loModificado);
+				System.out.println("Número de carnet modificado correctamente");
+				System.out.println("Nuevo número de carnet: " + ((clientes) (listaPersonas.get(posicion))).getNumCarnet());
 
 			} else {
 
-				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
+				System.out.println("Esta operación no es válida para este tipo de persona");
 			}
 
 			break;
@@ -191,10 +218,12 @@ public class GestionPersonas {
 			if (listaPersonas.get(posicion) instanceof clientes) {
 
 				((clientes) (listaPersonas.get(posicion))).setTipCarnet(loModificado);
+				System.out.println("Tipo de carnet modificado correctamente");
+				System.out.println("Nuevo tipo de carnet: " + ((clientes) (listaPersonas.get(posicion))).getTipCarnet());
 
 			} else {
 
-				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
+				System.out.println("Esta operación no es válida para este tipo de persona");
 			}
 
 			break;
@@ -206,30 +235,29 @@ public class GestionPersonas {
 				modificado3 = loModificado.charAt(0);
 
 				((clientes) (listaPersonas.get(posicion))).setTipConductor(modificado3);
+				System.out.println("Tipo de conductor modificado correctamente");
+				System.out.println("Nuevo tipo de conductor: " + ((clientes) (listaPersonas.get(posicion))).getTipConductor());
 
 			} else {
 
-				System.out.println(" Tu eres ********** o que te pasa? No sabes que no eres un cliente?");
+				System.out.println("Esta operación no es válida para este tipo de persona");
 			}
 
 			break;
 
 		case "contraseña":
 
-
-
-				(listaPersonas.get(posicion)).setContraseña(loModificado);
-
-			
+			(listaPersonas.get(posicion)).setContraseña(loModificado);
+			System.out.println("Contraseña modificada correctamente");
 
 			break;
 
 		default:
 
-			System.out.println(" ********** que eres **********, esa opcion no es ninguna de las disponibles ");
+			System.out.println("La opción que has introducido es errónea");
 
 			break;
-			
+
 		}
 
 	}
