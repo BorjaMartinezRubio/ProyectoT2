@@ -9,9 +9,10 @@ public abstract class vehiculos {
 	protected String modelo;
 	protected String bastidor;
 	protected String estado;
+	private final String estadoDefecto = "nuevo";
 	protected double precioDia;
 	protected String combustible;
-	ArrayList <revisiones> listaRevisiones = new ArrayList <revisiones>();	
+	ArrayList<revisiones> listaRevisiones = new ArrayList<revisiones>();
 
 	protected vehiculos() {
 
@@ -25,7 +26,14 @@ public abstract class vehiculos {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.bastidor = bastidor;
-		this.estado = estado;
+		if (estado.equalsIgnoreCase("nuevo") || estado.equalsIgnoreCase("seminuevo")) { // preguntar sobre esto a navazo
+			this.estado = estado;
+		} else {
+			System.out.println("El estado que has introducido es invalido (debe ser nuevo o seminuevo)");
+			System.out.println("Se le designará por defecto el estado 'nuevo', posteriormente podrás modificarlo");
+			this.estado = estadoDefecto;
+		}
+
 		this.precioDia = precioDia;
 		this.combustible = combustible;
 	}
@@ -149,11 +157,11 @@ public abstract class vehiculos {
 	protected void setListaRevisiones(ArrayList<revisiones> listaRevisiones) {
 		this.listaRevisiones = listaRevisiones;
 	}
-	
+
 	protected int buscarRevision(int id) {
 		int posicion = -1;
 		for (int i = 0; i < listaRevisiones.size(); i++) {
-			if (id==listaRevisiones.get(i).getId()) {
+			if (id == listaRevisiones.get(i).getId()) {
 				posicion = i;
 				i = listaRevisiones.size();
 				System.out.println("ID encontrada");
@@ -163,7 +171,7 @@ public abstract class vehiculos {
 		}
 		return posicion;
 	}
-	
+
 	protected void mostrarRevisiones() {
 		Iterator<revisiones> revisionesIterator = listaRevisiones.iterator();
 		while (revisionesIterator.hasNext()) {
@@ -171,7 +179,7 @@ public abstract class vehiculos {
 			System.out.println(R1.toString());
 		}
 	}
-	
+
 	protected void modificarRevisiones(int posicion, String valorModificar, String datoNuevo) {
 		String valorModificarMinusculas = valorModificar.toLowerCase();
 		switch (valorModificarMinusculas) {
@@ -189,7 +197,7 @@ public abstract class vehiculos {
 			System.out.println("La opción que has introducido no es válida");
 			break;
 		}
-		
+
 	}
 
 	public String toString() {
@@ -201,7 +209,7 @@ public abstract class vehiculos {
 		mensaje += "\n\tBastidor: " + bastidor;
 		mensaje += "\n\tMatrícula: " + matricula;
 		mensaje += "\n\tEstado: " + estado;
-		mensaje += "\n\tPrecio por dia: " + precioDia;
+		mensaje += "\n\tPrecio por dia: " + precioDia + "\u20AC";
 		mensaje += "\n\tCombustible: " + combustible;
 		return mensaje;
 	}

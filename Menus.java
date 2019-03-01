@@ -38,7 +38,7 @@ public class Menus {
 		System.out.println("| 6.- Ver lista de vehículos        |");
 		System.out.println("| 7.- Ver lista de clientes         |");
 		System.out.println("| 8.- Ver lista de alquileres       |");
-		System.out.println("| 9.- Salir                         |");
+		System.out.println("| 9.- Cerrar sesión                 |");
 		System.out.println("|-----------------------------------|");
 		System.out.print("Selecciona una opcion: ");
 	}
@@ -84,4 +84,7 @@ public class Menus {
 		System.out.print("Selecciona una opcion (introduce el nombre, no el numero): ");
 	}
 	
+	protected void menuTiposVehiculos() {
+		System.out.println("Tipo de vehículos disponibles: camion, coche, furgoneta, moto y supercoche");
+	}
 }

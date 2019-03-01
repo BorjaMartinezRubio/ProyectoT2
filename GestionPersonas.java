@@ -48,8 +48,31 @@ public class GestionPersonas {
 
 			}
 		}
+		if (listaPersonas.size()<=0) {
+			System.out.println("No hay clientes insertados");
+		}
 	}
-
+	
+	// Buscar una persona en el arraylist y devolver el objeto
+	protected personas buscarPersonas(String dni) {
+		boolean control = true;
+		Iterator<personas> personasIterator = listaPersonas.iterator();
+		personas p3 = null;
+		while (personasIterator.hasNext() && control) {
+			personas personas1 = personasIterator.next();
+			if (personas1.getDni().equalsIgnoreCase(dni)) {
+				p3 = personas1;
+				System.out.println("Persona encontrada");
+				control = false;
+				System.out.println(p3.toString());
+			}
+		}
+		if (control) {
+			System.out.println("Persona no encontrada");
+		}
+		return p3;
+	}
+	
 	// Buscar la posicion en el arraylist de la persona deseada
 	protected int buscarPosicion(String dni) {
 

@@ -16,6 +16,7 @@ public class GestionVehiculos {
 		if (control) {
 			listaVehiculos.add(vehiculoInsertar);
 			System.out.println("Vehiculo insertado correctamente");
+			System.out.println(vehiculoInsertar.toString());
 		} else {
 			System.out.println("No se ha podido insertar el vehiculo");
 		}
@@ -40,6 +41,9 @@ public class GestionVehiculos {
 			vehiculos vehiculo1 = vehiculoIterator.next();
 			System.out.println(vehiculo1.toString());
 
+		}
+		if (!vehiculoIterator.hasNext()) {
+			System.out.println("No hay vehículos insertados");
 		}
 	}
 
