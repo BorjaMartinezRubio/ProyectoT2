@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 
 public class clientes extends personas {
 	private String direccion, numCarnet, tipCarnet; // tipCarne (Ej: A, B1, B, A2)
 	private char TipConductor; // Pondremos N si es nobel y lleva menos de 2 años con carné o E si es "experto"
-									// mas de dos años
+								// mas de dos años
 	private vehiculos V1;
+	private ArrayList<vehiculos> alquileresRealizados = new ArrayList<vehiculos>();
 
 	/**
 	 * @param nombre
@@ -72,6 +74,29 @@ public class clientes extends personas {
 
 		this.V1 = V1;
 
+	}
+
+	protected void alquilerCliente(vehiculos V1) {
+
+		alquileresRealizados.add(V1);
+	}
+
+	/*
+	 * protected void verAlquieresRealizados () {
+	 * 
+	 * System.out.println(" Lista de vehiculos alquilados "); for ( int i = 0; i<
+	 * alquileresRealizados.size(); i++) {
+	 * System.out.println(alquileresRealizados.get(i).toString()); } }
+	 */
+
+	protected void verAlquieresRealizados() {
+
+		System.out.println(" Lista de vehiculos alquilados ");
+		for (int i = 0; i < alquileresRealizados.size(); i++) {
+			System.out.println(" Marca: " + alquileresRealizados.get(i).getMarca());
+			System.out.println(" Modelo: " + alquileresRealizados.get(i).getModelo());
+			
+		}
 	}
 
 	/*
