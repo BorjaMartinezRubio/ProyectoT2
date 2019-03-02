@@ -18,20 +18,25 @@ public class principal {
 		Menus menu = new Menus();
 		GestionVehiculos gesV = new GestionVehiculos();
 		GestionPersonas gesP = new GestionPersonas();
+		gestionAlquileres gesA = new gestionAlquileres();
 		personas p = null;
+		vehiculos v = null;
+		empleados e1 = null;
+		//empleados e2 = new empleados("Ivan", "Camps", "05994241G", "1234", 633961105, 18, 1, 2500, "Mecanico", "Motor");
+		//gesP.crearPersona(e2);
 		String nombre, apellidos, dni, contraseña, color, matricula, matriculaMayusculas, marca, modelo, bastidor,
 				bastidorMayusculas, estado, combustible, direccion, numCarnet, tipCarnet;
 		final String nombreAdmin = "admin";
 		final String contraseñaAdmin = "admin123";
-		String puesto, especialidad, opcion, cadenaSiNo;
+		String puesto, especialidad, opcion, cadenaSiNo, datoNuevo, fecha, descripcion;
 		char TipConductor;
-		int telefono, edad, asientos, peso, PMA, carga, cilindrada, super_motor;
+		int telefono, edad, asientos, peso, PMA, carga, cilindrada, super_motor, posicion;
 		double precioDia;
 		boolean estructura_carga;
 		boolean equipamiento;
 		boolean seguir = true;
-		boolean empleadoOAdmin = false;
-		boolean cerrarsesion = true;
+		boolean empleadoOAdmin = true;
+		boolean cerrarsesion = false;
 		do {
 			menu.menuPrincipal();
 			opcion = sc.nextLine();
@@ -49,6 +54,8 @@ public class principal {
 						if (p.getDni().equalsIgnoreCase(dni) && p.getContraseña().equalsIgnoreCase(contraseña)) {
 							empleadoOAdmin = true;
 						}
+					} else {
+						empleadoOAdmin = false;
 					}
 				}
 				if (empleadoOAdmin) {
@@ -70,7 +77,7 @@ public class principal {
 							System.out.println("Introduce el bastidor: ");
 							bastidor = sc.nextLine();
 							bastidorMayusculas = bastidor.toUpperCase();
-							System.out.println("Introduce el estado (nuevo o seminuevo): ");
+							System.out.println("Introduce el estado (disponible o alquilado): ");
 							estado = sc.nextLine();
 							System.out.println("Introduce el precio por dia: ");
 							precioDia = sc.nextDouble();
@@ -151,24 +158,94 @@ public class principal {
 								System.out.println("La opción introducida no es válida");
 							}
 							break;
+						case "2":
+							System.out.println("Introduce el bastidor del vehículo que quieres modificar: ");
+							bastidor = sc.nextLine();
+							posicion = gesV.buscarPosicion(bastidor);
+							if (posicion >= 0) {
+								menu.menuModificarVehiculos();
+								opcion = sc.nextLine();
+								System.out.println("Valor que quieres modificar: " + opcion);
+								System.out.println("Introduce el dato nuevo: ");
+								datoNuevo = sc.nextLine();
+								gesV.modificarVehiculos(posicion, opcion, datoNuevo);
+							}
+							break;
+						case "3":
+							System.out.println("Introduce el bastidor del vehículo que quieres eliminar: ");
+							bastidor = sc.nextLine();
+							gesV.borrarVehiculos(bastidor);
+							break;
+						case "4":
+							p = gesP.buscarPersonas(dni);
+							if (p instanceof empleados) {
+								e1 = (empleados) p;
+								if (e1.getPuesto().equalsIgnoreCase("mecanico")) {
+									System.out.println("Introduce la fecha de la revision (dd-mm-aaaa): ");
+									fecha = sc.nextLine();
+									System.out.println("Introduce la descripción de lo que has hecho en la revisión");
+									descripcion = sc.nextLine();
+									nombre = e1.getNombre();
+									apellidos = e1.getApellidos();
+									dni = e1.getDni();
+									puesto = e1.getPuesto();
+									revisiones R1 = new revisiones(fecha, descripcion, nombre, apellidos, dni, puesto);
+									System.out.println(
+											"Introduce el bastidor del vehículo al que le estás haciendo la revisión: ");
+									bastidor = sc.nextLine();
+									posicion = gesV.buscarPosicion(bastidor);
+									gesV.añadirRevision(posicion, R1);
+								}
+							}
+							break;
+						case "5":
+							System.out.println("Introduce la fecha de la revisión: ");
+							fecha = sc.nextLine();
+							System.out.println("Introduce el bastidor del vehículo al que se le hizo la revisión: ");
+							bastidor = sc.nextLine();
+							v=gesV.buscarVehiculos(bastidor);
+							posicion=v.buscarRevision(dni, bastidor, fecha, v);
+							if (posicion>=0) {
+								menu.menuModificarRevisiones();
+								opcion=sc.nextLine();
+								System.out.println("Introduce el dato nuevo: ");
+								datoNuevo=sc.nextLine();
+								v.modificarRevisiones(posicion, opcion, datoNuevo);
+							}
+							break;
 						case "6":
-							gesV.mostrarVehiculos();
 							break;
 						case "7":
-							gesP.mostrarClientes();
+							break;
+						case "8":
+							System.out.println("Introduce el bastidro del vehículo: ");
+							bastidor=sc.nextLine();
+							v=gesV.buscarVehiculos(bastidor);
+							if (v!=null) {
+								v.mostrarRevisiones();
+							}
 							break;
 						case "9":
+							gesV.mostrarVehiculos();
+							break;
+						case "10":
+							gesP.mostrarClientes();
+							break;
+						case "11":
+							gesA.mostrarAlquileres();
+							break;
+						case "12":
 							System.out.println("Has cerrado sesión correctamente");
-							cerrarsesion = false;
+							cerrarsesion = true;
+							empleadoOAdmin = false;
 							break;
 						default:
 							System.out.println("La opción que has introducido no es válida");
 							break;
 						}
-					} while (cerrarsesion);
+					} while (!cerrarsesion);
 				} else if (!empleadoOAdmin) {
-					System.out.println(
-							"No estás autorizado a acceder a esta opción, ya que no eres empleado y/o administrador");
+					System.out.println("Usuario y/o contraseña incorrecta");
 				}
 				break;
 			case "4":

@@ -5,8 +5,8 @@ public class gestionAlquileres {
 	ArrayList<alquileres> listaAlquileres = new ArrayList<alquileres>();
 
 	protected void añadirAlquiler(alquileres A1) {
-
-		listaAlquileres.add(A1);
+		
+		listaAlquileres.add(A1); // no hacemos ningun control de datos, ya que el mismo cliente puede alquilar el mismo vehiculo varias veces
 
 	}
 

@@ -33,17 +33,40 @@ public class GestionVehiculos {
 				System.out.println("Vehiculo eliminado correctamente");
 			}
 		}
+		if (control) {
+			System.out.println("El bastidor introducido no coincide con ningún vehículo registrado");
+		}
 	}
 
 	protected void mostrarVehiculos() {
+		boolean existenVehiculos = false;
 		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
 		while (vehiculoIterator.hasNext()) {
 			vehiculos vehiculo1 = vehiculoIterator.next();
 			System.out.println(vehiculo1.toString());
-
+			existenVehiculos = true;
 		}
-		if (!vehiculoIterator.hasNext()) {
+		if (!vehiculoIterator.hasNext() && existenVehiculos) {
+			System.out.println("No hay más vehículos insertados");
+		} else if (!vehiculoIterator.hasNext() && !existenVehiculos) {
 			System.out.println("No hay vehículos insertados");
+		}
+	}
+
+	protected void mostrarVehiculosDisponibles() {
+		boolean existenVehiculos = false;
+		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
+		while (vehiculoIterator.hasNext()) {
+			vehiculos vehiculo1 = vehiculoIterator.next();
+			if (vehiculo1.getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(vehiculo1.toString());
+				existenVehiculos = true;
+			}
+		}
+		if (!vehiculoIterator.hasNext() && existenVehiculos) {
+			System.out.println("No hay más vehículos disponibles");
+		} else if (!vehiculoIterator.hasNext() && !existenVehiculos) {
+			System.out.println("No hay vehículos disponibles");
 		}
 	}
 
@@ -74,7 +97,7 @@ public class GestionVehiculos {
 				i = listaVehiculos.size();
 				System.out.println("Bastidor encontrado");
 			} else if (i == listaVehiculos.size() - 1) {
-				System.out.println("Ese bastidor no estÃ¡ asignado a ningun vehiculo registrado. ");
+				System.out.println("Ese bastidor no está asignado a ningun vehiculo registrado. ");
 			}
 		}
 		return posicion;
@@ -112,8 +135,7 @@ public class GestionVehiculos {
 			System.out.println("Bastidor nuevo: " + (listaVehiculos.get(posicion)).getBastidor());
 			break;
 		case "estado":
-			if (datoNuevo.equalsIgnoreCase("nuevo") || datoNuevo.equalsIgnoreCase("seminuevo")
-					|| datoNuevo.equalsIgnoreCase("alquilado")) {
+			if (datoNuevo.equalsIgnoreCase("disponible") || datoNuevo.equalsIgnoreCase("alquilado")) {
 				(listaVehiculos.get(posicion)).setColor(datoNuevo);
 				System.out.println("Estado modificado correctamente");
 				System.out.println("Estado nuevo: " + (listaVehiculos.get(posicion)).getEstado());
@@ -121,8 +143,8 @@ public class GestionVehiculos {
 				System.out.println("El valor introducido no es valido");
 			}
 			break;
-		case "precio dia":
-			decimalNuevo=Double.parseDouble(datoNuevo);
+		case "precio por dia":
+			decimalNuevo = Double.parseDouble(datoNuevo);
 			(listaVehiculos.get(posicion)).setPrecioDia(decimalNuevo);
 			System.out.println("Precio por dia modificado correctamente");
 			System.out.println("Nuevo precio por dia: " + (listaVehiculos.get(posicion)).getPrecioDia());
@@ -241,10 +263,15 @@ public class GestionVehiculos {
 			break;
 		}
 	}
-	
-	protected void añadirRevision (int posicion, revisiones R1) {
-		
-		listaVehiculos.get(posicion).getListaRevisiones().add(R1);
-		
+
+	protected void añadirRevision(int posicion, revisiones R1) {
+		if (posicion>=0) {
+			listaVehiculos.get(posicion).getListaRevisiones().add(R1);
+			System.out.println("Revisión añadida correctamente");
+			System.out.println(listaVehiculos.get(posicion).getListaRevisiones().toString());
+		} else {
+			System.out.println("Bastidor no encontrado");
+		}
 	}
+
 }

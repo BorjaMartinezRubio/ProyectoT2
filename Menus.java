@@ -29,17 +29,20 @@ public class Menus {
 	}
 
 	protected void menuEmpleado() {
-		System.out.println("|-----------------------------------|");
-		System.out.println("| 1.- Añadir vehículos              |");
-		System.out.println("| 2.- Modificar vehículos           |");
-		System.out.println("| 3.- Borrar un vehículo            |");
-		System.out.println("| 4.- Hacer revisión a un vehículo  |");
-		System.out.println("| 5.- Modificar una revisión        |");
-		System.out.println("| 6.- Ver lista de vehículos        |");
-		System.out.println("| 7.- Ver lista de clientes         |");
-		System.out.println("| 8.- Ver lista de alquileres       |");
-		System.out.println("| 9.- Cerrar sesión                 |");
-		System.out.println("|-----------------------------------|");
+		System.out.println("|--------------------------------------------|");
+		System.out.println("| 1.- Añadir vehículos                       |");
+		System.out.println("| 2.- Modificar vehículos                    |");
+		System.out.println("| 3.- Borrar un vehículo                     |");
+		System.out.println("| 4.- Hacer revisión a un vehículo           |");
+		System.out.println("| 5.- Modificar una revisión                 |");
+		System.out.println("| 6.- Añadir empleado                        |");
+		System.out.println("| 7.- Dar de baja empleado                   |");
+		System.out.println("| 8.- Ver lista de revisiones de un vehiculo |");
+		System.out.println("| 9.- Ver lista de vehículos                 |");
+		System.out.println("| 10.- Ver lista de clientes                 |");
+		System.out.println("| 11.- Ver lista de alquileres               |");
+		System.out.println("| 12.- Cerrar sesión                         |");
+		System.out.println("|--------------------------------------------|");
 		System.out.print("Selecciona una opcion: ");
 	}
 	
@@ -86,5 +89,13 @@ public class Menus {
 	
 	protected void menuTiposVehiculos() {
 		System.out.println("Tipo de vehículos disponibles: camion, coche, furgoneta, moto y supercoche");
+	}
+	
+	protected void menuModificarRevisiones() {
+		System.out.println("|-------------------|");
+		System.out.println("| 1.- Fecha         |");
+		System.out.println("| 2.- Descripcion   |");
+		System.out.println("|-------------------|");
+		System.out.print("Selecciona una opcion (introduce el nombre, no el numero): ");
 	}
 }

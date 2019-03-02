@@ -4,7 +4,6 @@ public class alquileres {
 	private String nombre, apellidos, dni, marca, modelo, matricula;
 
 	protected alquileres(String nombre, String apellidos, String dni, String marca, String modelo, String matricula) {
-		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;

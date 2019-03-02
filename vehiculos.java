@@ -9,7 +9,7 @@ public abstract class vehiculos {
 	protected String modelo;
 	protected String bastidor;
 	protected String estado;
-	private final String estadoDefecto = "nuevo";
+	private final String estadoDefecto = "disponible";
 	protected double precioDia;
 	protected String combustible;
 	ArrayList<revisiones> listaRevisiones = new ArrayList<revisiones>();
@@ -26,11 +26,12 @@ public abstract class vehiculos {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.bastidor = bastidor;
-		if (estado.equalsIgnoreCase("nuevo") || estado.equalsIgnoreCase("seminuevo")) { // preguntar sobre esto a navazo
+		if (estado.equalsIgnoreCase("disponible") || estado.equalsIgnoreCase("alquilado")) { // preguntar sobre esto a
+																								// navazo
 			this.estado = estado;
 		} else {
-			System.out.println("El estado que has introducido es invalido (debe ser nuevo o seminuevo)");
-			System.out.println("Se le designará por defecto el estado 'nuevo', posteriormente podrás modificarlo");
+			System.out.println("El estado que has introducido es invalido (debe ser disponible o alquilado)");
+			System.out.println("Se le designará por defecto el estado 'disponible', posteriormente podrás modificarlo");
 			this.estado = estadoDefecto;
 		}
 
@@ -158,13 +159,15 @@ public abstract class vehiculos {
 		this.listaRevisiones = listaRevisiones;
 	}
 
-	protected int buscarRevision(int id) {
+	protected int buscarRevision(String dni, String bastidor, String fecha, vehiculos v1) {
 		int posicion = -1;
 		for (int i = 0; i < listaRevisiones.size(); i++) {
-			if (id == listaRevisiones.get(i).getId()) {
+			if (listaRevisiones.get(i).getDni().equalsIgnoreCase(dni)
+					&& listaRevisiones.get(i).getFecha().equalsIgnoreCase(fecha)
+					&& v1.getBastidor().equalsIgnoreCase(bastidor)) {
 				posicion = i;
 				i = listaRevisiones.size();
-				System.out.println("ID encontrada");
+				System.out.println("Revisión encontrada");
 			} else if (i == listaRevisiones.size() - 1) {
 				System.out.println("La revisión que estás buscando no existe");
 			}
@@ -200,6 +203,7 @@ public abstract class vehiculos {
 
 	}
 
+	@Override
 	public String toString() {
 		String mensaje;
 		mensaje = "Datos del vehículo: ";
