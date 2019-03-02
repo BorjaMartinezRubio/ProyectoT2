@@ -35,7 +35,7 @@ public class GestionVehiculos {
 		}
 	}
 
-	protected void mostrarVehiculos() {
+	/*protected void mostrarVehiculos() {
 		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
 		while (vehiculoIterator.hasNext()) {
 			vehiculos vehiculo1 = vehiculoIterator.next();
@@ -45,15 +45,54 @@ public class GestionVehiculos {
 		if (!vehiculoIterator.hasNext()) {
 			System.out.println("No hay vehículos insertados");
 		}
+	}*/
+	
+	protected void mostrarVehiculos2() {
+				
+		System.out.println("Estos son los coches disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof coche && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+		
+		System.out.println("Estas son las furgonetas disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof furgoneta && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+		
+		System.out.println("Estos son los camiones disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof camion && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+		
+		System.out.println("Estas son las motos disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof moto && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+		
+		System.out.println("Estos son los super coches disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof super_coche && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+			
 	}
 
-	protected vehiculos buscarVehiculos(String bastidor) { // necesario para asignar vehiculos
+	protected vehiculos buscarVehiculos(String matricula) { // necesario para asignar vehiculos
 		boolean control = true;
 		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
 		vehiculos v3 = null;
 		while (vehiculoIterator.hasNext() && control) {
 			vehiculos vehiculo1 = vehiculoIterator.next();
-			if (vehiculo1.getBastidor().equalsIgnoreCase(bastidor)) {
+			if (vehiculo1.getMatricula().equalsIgnoreCase(matricula)) {
 				v3 = vehiculo1;
 				System.out.println("Vehiculo encontrado");
 				control = false;

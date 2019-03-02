@@ -1,6 +1,6 @@
 
 public class alquileres {
-	
+
 	private String nombre, apellidos, dni, marca, modelo, matricula;
 
 	protected alquileres(String nombre, String apellidos, String dni, String marca, String modelo, String matricula) {
@@ -60,9 +60,9 @@ public class alquileres {
 	protected void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
-	
+
 	public String toString() {
-		
+
 		String mensaje;
 		mensaje = "Datos del alquiler: ";
 		mensaje += "\n\tMarca: " + marca;
@@ -72,7 +72,7 @@ public class alquileres {
 		mensaje += "\n\tApellidos: " + apellidos;
 		mensaje += "\n\tDNI: " + dni;
 		return mensaje;
-		
+
 	}
 
 }

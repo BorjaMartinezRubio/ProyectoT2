@@ -284,5 +284,12 @@ public class GestionPersonas {
 		}
 
 	}
+	
+	protected void asignacionVehiculo (int posicion, personas p) {
+		
+		
+		
+		
+	}
 
 }
