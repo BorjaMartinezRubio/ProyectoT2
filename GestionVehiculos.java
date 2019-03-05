@@ -53,22 +53,7 @@ public class GestionVehiculos {
 		}
 	}
 
-	protected void mostrarVehiculosDisponibles() {
-		boolean existenVehiculos = false;
-		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
-		while (vehiculoIterator.hasNext()) {
-			vehiculos vehiculo1 = vehiculoIterator.next();
-			if (vehiculo1.getEstado().equalsIgnoreCase("disponible")) {
-				System.out.println(vehiculo1.toString());
-				existenVehiculos = true;
-			}
-		}
-		if (!vehiculoIterator.hasNext() && existenVehiculos) {
-			System.out.println("No hay más vehículos disponibles");
-		} else if (!vehiculoIterator.hasNext() && !existenVehiculos) {
-			System.out.println("No hay vehículos disponibles");
-		}
-	}
+
 	
 	protected void mostrarVehiculos2() {
 		

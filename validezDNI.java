@@ -1,7 +1,7 @@
 
 public class validezDNI {
 
-	public static boolean comprobar(String dniAComprobar) {
+	protected boolean comprobar(String dniAComprobar) {
 
 		// Array con las letras posibles del dni en su posición
 		char[] letraDni = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V',
