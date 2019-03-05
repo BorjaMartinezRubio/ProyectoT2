@@ -1,15 +1,2 @@
-/clientes.class
-/empleados.class
-/personas.class
-/principal.class
-/vehiculos.class
-/GestionPersonas.class
-/validezDNI.class
-/GestionVehiculos.class
-/camion.class
-/coche.class
-/furgoneta.class
-/moto.class
-/super_coche.class
-/revisiones.class
-/Menus.class
+/alquileres.class
+/gestionAlquileres.class

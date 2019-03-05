@@ -69,14 +69,53 @@ public class GestionVehiculos {
 			System.out.println("No hay vehículos disponibles");
 		}
 	}
+	
+	protected void mostrarVehiculos2() {
+		
+		System.out.println("Estos son los coches disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof coche && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+		
+		System.out.println("Estas son las furgonetas disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof furgoneta && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+		
+		System.out.println("Estos son los camiones disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof camion && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+		
+		System.out.println("Estas son las motos disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof moto && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+		
+		System.out.println("Estos son los super coches disponibles");
+		for (int i = 0; i<listaVehiculos.size(); i++ ) {
+			if (listaVehiculos.get(i) instanceof super_coche && listaVehiculos.get(i).getEstado().equalsIgnoreCase("disponible")) {
+				System.out.println(listaVehiculos.get(i).toString());
+			}
+		}
+			
+	}
 
-	protected vehiculos buscarVehiculos(String bastidor) { // necesario para asignar vehiculos
+	protected vehiculos buscarVehiculos(String datoIntroducido) { // necesario para asignar vehiculos
 		boolean control = true;
 		Iterator<vehiculos> vehiculoIterator = listaVehiculos.iterator();
 		vehiculos v3 = null;
 		while (vehiculoIterator.hasNext() && control) {
 			vehiculos vehiculo1 = vehiculoIterator.next();
-			if (vehiculo1.getBastidor().equalsIgnoreCase(bastidor)) {
+			if (vehiculo1.getBastidor().equalsIgnoreCase(datoIntroducido)  || vehiculo1.getMatricula().equalsIgnoreCase(datoIntroducido)) {
 				v3 = vehiculo1;
 				System.out.println("Vehiculo encontrado");
 				control = false;
@@ -89,15 +128,15 @@ public class GestionVehiculos {
 		return v3;
 	}
 
-	protected int buscarPosicion(String bastidor) {
+	protected int buscarPosicion(String datoIntroducido) {
 		int posicion = -1;
 		for (int i = 0; i < listaVehiculos.size(); i++) {
-			if (bastidor.equalsIgnoreCase(listaVehiculos.get(i).getBastidor())) {
+			if (datoIntroducido.equalsIgnoreCase(listaVehiculos.get(i).getBastidor()) || datoIntroducido.equalsIgnoreCase(listaVehiculos.get(i).getMatricula())) {
 				posicion = i;
 				i = listaVehiculos.size();
-				System.out.println("Bastidor encontrado");
+				System.out.println("Dato encontrado");
 			} else if (i == listaVehiculos.size() - 1) {
-				System.out.println("Ese bastidor no está asignado a ningun vehiculo registrado. ");
+				System.out.println("Ese dato no está asignado a ningun vehiculo registrado. ");
 			}
 		}
 		return posicion;
@@ -265,13 +304,19 @@ public class GestionVehiculos {
 	}
 
 	protected void añadirRevision(int posicion, revisiones R1) {
-		if (posicion>=0) {
+		if (posicion >= 0) {
 			listaVehiculos.get(posicion).getListaRevisiones().add(R1);
 			System.out.println("Revisión añadida correctamente");
 			System.out.println(listaVehiculos.get(posicion).getListaRevisiones().toString());
 		} else {
 			System.out.println("Bastidor no encontrado");
 		}
+	}
+
+	protected void reescribirVehiculo(int posicion, vehiculos v) {
+
+		listaVehiculos.set(posicion, v);
+
 	}
 
 }

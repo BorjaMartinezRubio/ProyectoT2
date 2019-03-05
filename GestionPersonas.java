@@ -48,11 +48,11 @@ public class GestionPersonas {
 
 			}
 		}
-		if (listaPersonas.size()<=0) {
+		if (listaPersonas.size() <= 0) {
 			System.out.println("No hay clientes insertados");
 		}
 	}
-	
+
 	// Buscar una persona en el arraylist y devolver el objeto
 	protected personas buscarPersonas(String dni) {
 		boolean control = true;
@@ -72,7 +72,7 @@ public class GestionPersonas {
 		}
 		return p3;
 	}
-	
+
 	// Buscar la posicion en el arraylist de la persona deseada
 	protected int buscarPosicion(String dni) {
 
@@ -80,8 +80,7 @@ public class GestionPersonas {
 
 		for (int i = 0; i < listaPersonas.size(); i++) {
 
-			if (dni.equals(((empleados) listaPersonas.get(i)).getDni())
-					|| dni.equals(((clientes) listaPersonas.get(i)).getDni())) {
+			if (dni.equals((listaPersonas.get(i)).getDni())) {
 
 				posicion = i;
 				i = listaPersonas.size();
@@ -184,7 +183,8 @@ public class GestionPersonas {
 
 				((empleados) (listaPersonas.get(posicion))).setPuesto(loModificado);
 				System.out.println("Puesto de trabajo modificado correctamente");
-				System.out.println("Nuevo puesto de trabajo: " + ((empleados) (listaPersonas.get(posicion))).getPuesto());
+				System.out
+						.println("Nuevo puesto de trabajo: " + ((empleados) (listaPersonas.get(posicion))).getPuesto());
 
 			} else {
 
@@ -199,7 +199,8 @@ public class GestionPersonas {
 
 				((empleados) (listaPersonas.get(posicion))).setEspecialidad(loModificado);
 				System.out.println("Especialidad modificada correctamente");
-				System.out.println("Nueva especialidad: " + ((empleados) (listaPersonas.get(posicion))).getEspecialidad());
+				System.out.println(
+						"Nueva especialidad: " + ((empleados) (listaPersonas.get(posicion))).getEspecialidad());
 
 			} else {
 
@@ -227,7 +228,8 @@ public class GestionPersonas {
 
 				((clientes) (listaPersonas.get(posicion))).setNumCarnet(loModificado);
 				System.out.println("Número de carnet modificado correctamente");
-				System.out.println("Nuevo número de carnet: " + ((clientes) (listaPersonas.get(posicion))).getNumCarnet());
+				System.out.println(
+						"Nuevo número de carnet: " + ((clientes) (listaPersonas.get(posicion))).getNumCarnet());
 
 			} else {
 
@@ -242,7 +244,8 @@ public class GestionPersonas {
 
 				((clientes) (listaPersonas.get(posicion))).setTipCarnet(loModificado);
 				System.out.println("Tipo de carnet modificado correctamente");
-				System.out.println("Nuevo tipo de carnet: " + ((clientes) (listaPersonas.get(posicion))).getTipCarnet());
+				System.out
+						.println("Nuevo tipo de carnet: " + ((clientes) (listaPersonas.get(posicion))).getTipCarnet());
 
 			} else {
 
@@ -259,7 +262,8 @@ public class GestionPersonas {
 
 				((clientes) (listaPersonas.get(posicion))).setTipConductor(modificado3);
 				System.out.println("Tipo de conductor modificado correctamente");
-				System.out.println("Nuevo tipo de conductor: " + ((clientes) (listaPersonas.get(posicion))).getTipConductor());
+				System.out.println(
+						"Nuevo tipo de conductor: " + ((clientes) (listaPersonas.get(posicion))).getTipConductor());
 
 			} else {
 
@@ -282,6 +286,12 @@ public class GestionPersonas {
 			break;
 
 		}
+
+	}
+
+	protected void reescribirPersona(int posicion, personas p) {
+
+		listaPersonas.set(posicion, p);
 
 	}
 

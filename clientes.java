@@ -71,8 +71,11 @@ public class clientes extends personas {
 	}
 
 	protected void AsignarVehiculo(vehiculos V1) {
-
-		this.V1 = V1;
+		if (this.V1 == null) {
+			this.V1 = V1;
+		} else {
+			System.out.println("Solo puedes alquilar un vehículo al mismo tiempo");
+		}
 
 	}
 
@@ -95,7 +98,7 @@ public class clientes extends personas {
 		for (int i = 0; i < alquileresRealizados.size(); i++) {
 			System.out.println(" Marca: " + alquileresRealizados.get(i).getMarca());
 			System.out.println(" Modelo: " + alquileresRealizados.get(i).getModelo());
-			
+
 		}
 	}
 

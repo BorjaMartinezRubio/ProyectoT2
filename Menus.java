@@ -19,12 +19,13 @@ public class Menus {
 	}
 
 	protected void menuCliente() {
-		System.out.println("|--------------------------------|");
-		System.out.println("| 1.- Alquilar vehiculo          |");
-		System.out.println("| 2.- Ver vehiculos disponibles  |");
-		System.out.println("| 3.- Modificar datos personales |");
-		System.out.println("| 4.- Cerrar sesión              |");
-		System.out.println("|--------------------------------|");
+		System.out.println("|---------------------------------|");
+		System.out.println("| 1.- Alquilar vehiculo           |");
+		System.out.println("| 2.- Ver vehiculos disponibles   |");
+		System.out.println("| 3.- Ver historial de alquileres |");
+		System.out.println("| 4.- Modificar datos personales  |");
+		System.out.println("| 5.- Cerrar sesión               |");
+		System.out.println("|---------------------------------|");
 		System.out.print("Selecciona una opcion: ");
 	}
 
