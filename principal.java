@@ -3,17 +3,7 @@ import java.util.Scanner;
 public class principal {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		/*
-		 * GestionVehiculos gesV = new GestionVehiculos(); coche c1 = new coche ("Rojo",
-		 * "5555YVN","Misco", "Jones", "sos505", " Nuevo", 25000, "nemes", 2);
-		 * gesV.insertarVehiculos(c1); c1.mostrarRevisiones(); int posicion =
-		 * gesV.buscarPosicion("sos505"); revisiones R1 = new revisiones ("69-69-6969",
-		 * " Tu coche no vale para nada, tiralo", 1); gesV.añadirRevision(posicion, R1);
-		 * c1.mostrarRevisiones(); int posicion2=c1.buscarRevision(1);
-		 * c1.modificarRevisiones(posicion2, "descripcion",
-		 * "Tu coche es peor que un Fiat Multipla"); c1.mostrarRevisiones();
-		 */
+		
 		Scanner sc = new Scanner(System.in);
 		Menus menu = new Menus();
 		GestionVehiculos gesV = new GestionVehiculos();
@@ -24,9 +14,7 @@ public class principal {
 		vehiculos v = null;
 		empleados e1 = null;
 		alquileres a = null;
-		empleados ceo = new empleados("Javier", "Fernandez Sanchez", "41147918K", "ceo123", 622142364, 26, 5, 5000,
-				"CEO", "Negocios y personal");
-		gesP.crearPersona(ceo);
+		creacionEstatica cr7 = new creacionEstatica();
 		String nombre, apellidos, dni, contraseña, color, matricula, matriculaMayusculas, marca, modelo, bastidor,
 				bastidorMayusculas, estado, combustible, direccion, numCarnet, tipCarnet;
 		String puesto, especialidad, opcion, cadenaSiNo, datoNuevo, fecha, descripcion, valorModificar, dias;
