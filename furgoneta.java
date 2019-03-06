@@ -41,6 +41,17 @@ public class furgoneta extends vehiculos {
 	}
 
 	@Override
+	protected void calcularPrecioTotal(String dias) {
+		// TODO Auto-generated method stub
+		final double complemento=6.95;
+		double resultado;
+		double diasDouble=Double.parseDouble(dias);
+		resultado=diasDouble*(complemento+precioDia);
+		System.out.println("Complemento por día (furgoneta): " + complemento);
+		System.out.println("El precio total del alquiler es: " + resultado);
+	}
+	
+	@Override
 	public String toString() {
 		String mensaje;
 		mensaje = "\n\tCarga maxima: " + carga;

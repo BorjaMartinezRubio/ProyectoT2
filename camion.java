@@ -3,7 +3,6 @@ public class camion extends vehiculos {
 	private boolean estructura_carga;
 	private int peso;
 	private int PMA; //peso maximo autorizado
-
 	protected camion() {
 
 	}
@@ -70,6 +69,17 @@ public class camion extends vehiculos {
 		PMA = pMA;
 	}
 
+	@Override
+	protected void calcularPrecioTotal(String dias) {
+		// TODO Auto-generated method stub
+		final double complemento=9.95;
+		double resultado;
+		double diasDouble=Double.parseDouble(dias);
+		resultado=diasDouble*(complemento+precioDia);
+		System.out.println("Complemento por día (camion): " + complemento);
+		System.out.println("El precio total del alquiler es: " + resultado);
+	}
+	
 	@Override
 	public String toString() {
 		String mensaje="";

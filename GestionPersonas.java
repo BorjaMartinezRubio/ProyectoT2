@@ -64,7 +64,7 @@ public class GestionPersonas {
 				p3 = personas1;
 				System.out.println("Persona encontrada");
 				control = false;
-				System.out.println(p3.toString());
+				//System.out.println(p3.toString());
 			}
 		}
 		if (control) {

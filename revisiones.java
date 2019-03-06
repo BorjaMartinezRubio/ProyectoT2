@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-
 public class revisiones {
 
 	private String nombre, apellidos, dni, puesto;

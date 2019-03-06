@@ -52,6 +52,17 @@ public class moto extends vehiculos {
 	}
 
 	@Override
+	protected void calcularPrecioTotal(String dias) {
+		// TODO Auto-generated method stub
+		final double complemento=5.50;
+		double resultado;
+		double diasDouble=Double.parseDouble(dias);
+		resultado=diasDouble*(complemento+precioDia);
+		System.out.println("Complemento por día (moto): " + complemento);
+		System.out.println("El precio total del alquiler es: " + resultado);
+	}
+	
+	@Override
 	public String toString() {
 		String mensaje="";
 		if (equipamiento) {

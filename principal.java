@@ -24,9 +24,12 @@ public class principal {
 		vehiculos v = null;
 		empleados e1 = null;
 		alquileres a = null;
-		clientes cliente1 = new clientes("Ivan", "Camps", "05994241G", "1234", 633961105, 18, "Calle de miscojones",
-				"51056432A", "B", 'N');
-		gesP.crearPersona(cliente1);
+		 clientes clientePrueba = new clientes("Ivan", "Camps", "05994241G", "1234",
+		 633961105, 18, "Calle de miscojones",
+		 "51056432A", "B", 'N');
+		 gesP.crearPersona(clientePrueba);
+		empleados ceo = new empleados("Javier", "Fernandez Sanchez", "41147918K", "ceo123", 622142364, 26, 5, 5000, "CEO", "Negocios");
+		gesP.crearPersona(ceo);
 		// empleados e2 = new empleados("Ivan", "Camps", "05994241G", "1234", 633961105,
 		// 18, 1, 2500, "Mecanico", "Motor");
 		// gesP.crearPersona(e2);
@@ -34,7 +37,7 @@ public class principal {
 				bastidorMayusculas, estado, combustible, direccion, numCarnet, tipCarnet;
 		final String nombreAdmin = "admin";
 		final String contraseñaAdmin = "admin123";
-		String puesto, especialidad, opcion, cadenaSiNo, datoNuevo, fecha, descripcion, valorModificar;
+		String puesto, especialidad, opcion, cadenaSiNo, datoNuevo, fecha, descripcion, valorModificar, dias;
 		char TipConductor;
 		int telefono, edad, asientos, peso, PMA, carga, cilindrada, super_motor, posicion, antiguedad;
 		final int edadMinima = 18;
@@ -44,6 +47,7 @@ public class principal {
 		boolean seguir = true;
 		boolean empleadoOAdmin = true;
 		boolean cerrarsesion = false;
+		boolean sesion2 = true;
 		do {
 			menu.menuPrincipal();
 			opcion = sc.nextLine();
@@ -68,13 +72,14 @@ public class principal {
 				if (empleadoOAdmin) {
 					System.out.println("Has iniciado sesión correctamente");
 					do {
+						p=gesP.buscarPersonas(dni);
 						cerrarsesion = false;
 						menu.menuEmpleado();
 						opcion = sc.nextLine();
 						switch (opcion) {
 						case "1":
-							if (!((empleados) p).getPuesto().equalsIgnoreCase("mecanico")
-									|| dni.equalsIgnoreCase(nombreAdmin)) {
+							if (((empleados)p).getPuesto().equalsIgnoreCase("ceo")
+									|| ((empleados)p).getPuesto().equalsIgnoreCase("jefe de taller") || dni.equalsIgnoreCase(nombreAdmin)) {
 								System.out.println("Introduce la marca: ");
 								marca = sc.nextLine();
 								System.out.println("Introduce el modelo: ");
@@ -345,184 +350,268 @@ public class principal {
 				break;
 
 			case "2":
+				
+				sesion2 = true;
+				while(sesion2) {
+					
+					menu.menuCliente2();
+					opcion = sc.nextLine();
+					switch (opcion) {
 
-				System.out.println("Introduce tu DNI: ");
-				dni = sc.nextLine();
-				System.out.println("Introduce tu contraseña: ");
-				contraseña = sc.nextLine();
-				p = gesP.buscarPersonas(dni);
-				if (p instanceof clientes) {
-					if (p.getDni().equalsIgnoreCase(dni) && p.getContraseña().equalsIgnoreCase(contraseña)) {
-						empleadoOAdmin = true;
-					}
-				}
-				if (empleadoOAdmin) {
-					System.out.println("Has iniciado sesión correctamente");
-					do {
-						cerrarsesion = false;
-						menu.menuCliente();
-						opcion = sc.nextLine();
-						switch (opcion) {
+					case "1":
 
-						case "1":
-
-							System.out.println("Por favor introduce la matricula del vehiculo que desea alquilar");
-							System.out.println(
-									"Recuerde que para poder alquilar un vehiculo ha de tener el carnet correspondiente");
-							System.out.println(
-									"Recuerde tambien que en el caso de los super coches se necesita ser un conductor experto (mas de 2 años de carnet)");
-
-							matricula = sc.nextLine();
-							v = gesV.buscarVehiculos(matricula);
-
-							if (v != null) {
-								if (v instanceof coche && ((clientes) p).getTipCarnet().equalsIgnoreCase("B")) {
-
-									posicion = gesP.buscarPosicion(dni);
-									p = gesP.buscarPersonas(dni);
-									((clientes) p).AsignarVehiculo(v);
-									((clientes) p).alquilerCliente(v);
-									gesP.reescribirPersona(posicion, p);
-
-									posicion = gesV.buscarPosicion(matricula);
-									v.setEstado("alquilado");
-									gesV.reescribirVehiculo(posicion, v);
-									nombre = p.getNombre();
-									apellidos = p.getApellidos();
-									dni = p.getDni();
-									marca = v.getMarca();
-									modelo = v.getModelo();
-
-									a = new alquileres(nombre, apellidos, dni, marca, modelo, matricula);
-									gesA.añadirAlquiler(a);
-
-									System.out.println("Vehiculo asignado correctamente");
-								} else
-
-								if (v instanceof moto && ((clientes) p).getTipCarnet().equalsIgnoreCase("A")) {
-
-									posicion = gesP.buscarPosicion(dni);
-									p = gesP.buscarPersonas(dni);
-									((clientes) p).AsignarVehiculo(v);
-									((clientes) p).alquilerCliente(v);
-									gesP.reescribirPersona(posicion, p);
-
-									posicion = gesV.buscarPosicion(matricula);
-									v.setEstado("alquilado");
-									gesV.reescribirVehiculo(posicion, v);
-									nombre = p.getNombre();
-									apellidos = p.getApellidos();
-									dni = p.getDni();
-									marca = v.getMarca();
-									modelo = v.getModelo();
-
-									a = new alquileres(nombre, apellidos, dni, marca, modelo, matricula);
-									gesA.añadirAlquiler(a);
-
-									System.out.println("Vehiculo asignado correctamente");
-								} else
-
-								if (v instanceof camion && ((clientes) p).getTipCarnet().equalsIgnoreCase("C")) {
-
-									posicion = gesP.buscarPosicion(dni);
-									p = gesP.buscarPersonas(dni);
-									((clientes) p).AsignarVehiculo(v);
-									((clientes) p).alquilerCliente(v);
-									gesP.reescribirPersona(posicion, p);
-
-									posicion = gesV.buscarPosicion(matricula);
-									v.setEstado("alquilado");
-									gesV.reescribirVehiculo(posicion, v);
-									nombre = p.getNombre();
-									apellidos = p.getApellidos();
-									dni = p.getDni();
-									marca = v.getMarca();
-									modelo = v.getModelo();
-
-									a = new alquileres(nombre, apellidos, dni, marca, modelo, matricula);
-									gesA.añadirAlquiler(a);
-
-									System.out.println("Vehiculo asignado correctamente");
-								} else
-
-								if (v instanceof super_coche && ((clientes) p).getTipCarnet().equalsIgnoreCase("B")
-										&& ((clientes) p).getTipConductor() == ('E')) {
-
-									posicion = gesP.buscarPosicion(dni);
-									p = gesP.buscarPersonas(dni);
-									((clientes) p).AsignarVehiculo(v);
-									((clientes) p).alquilerCliente(v);
-									gesP.reescribirPersona(posicion, p);
-
-									posicion = gesV.buscarPosicion(matricula);
-									v.setEstado("alquilado");
-									gesV.reescribirVehiculo(posicion, v);
-									nombre = p.getNombre();
-									apellidos = p.getApellidos();
-									dni = p.getDni();
-									marca = v.getMarca();
-									modelo = v.getModelo();
-
-									a = new alquileres(nombre, apellidos, dni, marca, modelo, matricula);
-									gesA.añadirAlquiler(a);
-
-									System.out.println("Vehiculo asignado correctamente");
+						System.out.println("Introduzaca su nombre");
+						nombre = sc.nextLine();
+						System.out.println("Introduzaca sus apellidos");
+						apellidos = sc.nextLine();
+						System.out.println("Introduzaca su dni (8 numeros y una letra");
+						dni = sc.nextLine();
+						if (vDNI.comprobar(dni)) {
+							System.out.println("El DNI introducido es válido");
+							System.out.println("Introduzca su contraseña ");
+							contraseña = sc.nextLine();
+							System.out.println("Introduzca su telefono ");
+							telefono = sc.nextInt();
+							sc.nextLine();
+							System.out.println("Introduzca su edad ");
+							edad = sc.nextInt();
+							sc.nextLine();
+							if (edad >= edadMinima) {
+								System.out.println("Introduzca su direccion");
+								direccion = sc.nextLine();
+								System.out.println("Introduzca su numero de carnet");
+								numCarnet = sc.nextLine();
+								System.out.println("Introduzca el tipo de carnet (A, B, C)");
+								tipCarnet = sc.nextLine();
+								if(tipCarnet.equalsIgnoreCase ("A") || tipCarnet.equalsIgnoreCase ("B") || tipCarnet.equalsIgnoreCase ("C")) {
+								System.out.println("Introduzca la antigüedad del carnet");
+								antiguedad = sc.nextInt();
+								sc.nextLine();
+								if (antiguedad < 2) {
+									TipConductor = 'N';
 								} else {
-
-									System.out.println(
-											"Lo siento pero no se puede completar el alquiler del vehiculo solicitado");
+									TipConductor = 'E';
 								}
+								clientes cliente1 = new clientes(nombre, apellidos, dni, contraseña, telefono, edad,
+										direccion, numCarnet, tipCarnet, TipConductor);
+								gesP.crearPersona(cliente1);
+								} else {
+									System.out.println(" Tipo de carnet incorrecto, recuerde que los tipos son 'A', 'B' o 'C'");
+								}
+							} else {
+								System.out.println("Has de tener al menos 18 años para poder registrarte");
 							}
-							v = null;
-							break;
-
-						case "2":
-
-							gesV.mostrarVehiculos2();
-
-							break;
-
-						case "3":
-
-							p = gesP.buscarPersonas(dni);
-							((clientes) p).verAlquieresRealizados();
-
-							break;
-
-						case "4":
-
-							posicion = gesP.buscarPosicion(dni);
-							System.out.println("¿Que campo desea modificar?");
-							valorModificar = sc.nextLine();
-							System.out.println("¿Cual es el nuevo valor que desea introducir?");
-							datoNuevo = sc.nextLine();
-							gesP.modificarPersona(posicion, valorModificar, datoNuevo);
-
-							break;
-
-						case "5":
-
-							System.out.println("Has cerrado sesión correctamente");
-							cerrarsesion = true;
-
-							break;
-
-						default:
-
-							System.out.println("La opción que has introducido no es válida");
-
-							break;
-
+						} else {
+							System.out.println("El DNI introducido no es válido");
 						}
 
-					} while (!cerrarsesion);
+						break;
 
-				} else if (!empleadoOAdmin) {
+					case "2":
 
-					System.out.println("Los datos introducidos no son correctos");
-				}
+						System.out.println("Introduce tu DNI: ");
+						dni = sc.nextLine();
+						System.out.println("Introduce tu contraseña: ");
+						contraseña = sc.nextLine();
+						p = gesP.buscarPersonas(dni);
+						if (p instanceof clientes) {
+							if (p.getDni().equalsIgnoreCase(dni) && p.getContraseña().equalsIgnoreCase(contraseña)) {
+								empleadoOAdmin = true;
+							} else {
+								empleadoOAdmin = false;
+							}
+						}
+						if (empleadoOAdmin) {
+							System.out.println("Has iniciado sesión correctamente");
+							do {
+								cerrarsesion = false;
+								menu.menuCliente();
+								opcion = sc.nextLine();
+								switch (opcion) {
+
+								case "1":
+
+									System.out.println(
+											"Por favor introduce la matricula del vehiculo que desea alquilar");
+									System.out.println(
+											"Recuerde que para poder alquilar un vehiculo ha de tener el carnet correspondiente");
+									System.out.println(
+											"Recuerde tambien que en el caso de los super coches se necesita ser un conductor experto (mas de 2 años de carnet)");
+
+									matricula = sc.nextLine();
+									v = gesV.buscarVehiculos(matricula);
+									System.out.println("Introduce el numero de días que vas a alquilar el vehículo: ");
+									dias=sc.nextLine();
+									v.calcularPrecioTotal(dias);
+									if (v != null) {
+										if (v instanceof coche && ((clientes) p).getTipCarnet().equalsIgnoreCase("B")) {
+
+											posicion = gesP.buscarPosicion(dni);
+											p = gesP.buscarPersonas(dni);
+											((clientes) p).AsignarVehiculo(v);
+											((clientes) p).alquilerCliente(v);
+											gesP.reescribirPersona(posicion, p);
+
+											posicion = gesV.buscarPosicion(matricula);
+											v.setEstado("alquilado");
+											gesV.reescribirVehiculo(posicion, v);
+											nombre = p.getNombre();
+											apellidos = p.getApellidos();
+											dni = p.getDni();
+											marca = v.getMarca();
+											modelo = v.getModelo();
+											
+											a = new alquileres(nombre, apellidos, dni, marca, modelo, matricula);
+											gesA.añadirAlquiler(a);
+
+											System.out.println("Vehiculo asignado correctamente");
+										} else
+
+										if (v instanceof moto && ((clientes) p).getTipCarnet().equalsIgnoreCase("A")) {
+
+											posicion = gesP.buscarPosicion(dni);
+											p = gesP.buscarPersonas(dni);
+											((clientes) p).AsignarVehiculo(v);
+											((clientes) p).alquilerCliente(v);
+											gesP.reescribirPersona(posicion, p);
+
+											posicion = gesV.buscarPosicion(matricula);
+											v.setEstado("alquilado");
+											gesV.reescribirVehiculo(posicion, v);
+											nombre = p.getNombre();
+											apellidos = p.getApellidos();
+											dni = p.getDni();
+											marca = v.getMarca();
+											modelo = v.getModelo();
+
+											a = new alquileres(nombre, apellidos, dni, marca, modelo, matricula);
+											gesA.añadirAlquiler(a);
+
+											System.out.println("Vehiculo asignado correctamente");
+										} else
+
+										if (v instanceof camion
+												&& ((clientes) p).getTipCarnet().equalsIgnoreCase("C")) {
+
+											posicion = gesP.buscarPosicion(dni);
+											p = gesP.buscarPersonas(dni);
+											((clientes) p).AsignarVehiculo(v);
+											((clientes) p).alquilerCliente(v);
+											gesP.reescribirPersona(posicion, p);
+
+											posicion = gesV.buscarPosicion(matricula);
+											v.setEstado("alquilado");
+											gesV.reescribirVehiculo(posicion, v);
+											nombre = p.getNombre();
+											apellidos = p.getApellidos();
+											dni = p.getDni();
+											marca = v.getMarca();
+											modelo = v.getModelo();
+
+											a = new alquileres(nombre, apellidos, dni, marca, modelo, matricula);
+											gesA.añadirAlquiler(a);
+
+											System.out.println("Vehiculo asignado correctamente");
+										} else
+
+										if (v instanceof super_coche
+												&& ((clientes) p).getTipCarnet().equalsIgnoreCase("B")
+												&& ((clientes) p).getTipConductor() == ('E')) {
+
+											posicion = gesP.buscarPosicion(dni);
+											p = gesP.buscarPersonas(dni);
+											((clientes) p).AsignarVehiculo(v);
+											((clientes) p).alquilerCliente(v);
+											gesP.reescribirPersona(posicion, p);
+
+											posicion = gesV.buscarPosicion(matricula);
+											v.setEstado("alquilado");
+											gesV.reescribirVehiculo(posicion, v);
+											nombre = p.getNombre();
+											apellidos = p.getApellidos();
+											dni = p.getDni();
+											marca = v.getMarca();
+											modelo = v.getModelo();
+
+											a = new alquileres(nombre, apellidos, dni, marca, modelo, matricula);
+											gesA.añadirAlquiler(a);
+
+											System.out.println("Vehiculo asignado correctamente");
+										} else {
+
+											System.out.println(
+													"Lo siento pero no se puede completar el alquiler del vehiculo solicitado");
+										}
+									}
+									v = null;
+									break;
+
+								case "2":
+
+									gesV.mostrarVehiculos2();
+
+									break;
+
+								case "3":
+
+									p = gesP.buscarPersonas(dni);
+									((clientes) p).verAlquieresRealizados();
+
+									break;
+
+								case "4":
+
+									posicion = gesP.buscarPosicion(dni);
+									System.out.println("¿Que campo desea modificar?");
+									valorModificar = sc.nextLine();
+									System.out.println("¿Cual es el nuevo valor que desea introducir?");
+									datoNuevo = sc.nextLine();
+									gesP.modificarPersona(posicion, valorModificar, datoNuevo);
+
+									break;
+
+								case "5":
+
+									System.out.println("Has cerrado sesión correctamente");
+									cerrarsesion = true;
+
+									break;
+
+								default:
+
+									System.out.println("La opción que has introducido no es válida");
+
+									break;
+
+								}
+
+							} while (!cerrarsesion);
+
+						} else if (!empleadoOAdmin) {
+
+							System.out.println("Los datos introducidos no son correctos");
+						}
+
+						break;
+
+					case "3":
+
+						System.out.println("Has decidido salir");
+						sesion2 = false;
+
+						break;
+						
+					default:
+
+						System.out.println("La opción que has introducido no es válida");
+
+						break;
+
+					}
+				} 
 
 				break;
+
 			case "3":
 				do {
 					menu.menuInvitado();

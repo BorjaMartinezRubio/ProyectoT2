@@ -31,6 +31,17 @@ public class super_coche extends vehiculos {
 	}
 
 	@Override
+	protected void calcularPrecioTotal(String dias) {
+		// TODO Auto-generated method stub
+		final double complemento=75;
+		double resultado;
+		double diasDouble=Double.parseDouble(dias);
+		resultado=diasDouble*(complemento+precioDia);
+		System.out.println("Complemento por día (supercoche): " + complemento);
+		System.out.println("El precio total del alquiler es: " + resultado);
+	}
+	
+	@Override
 	public String toString() {
 		String mensaje;
 		mensaje = "\n\tLa potencia del motor del supercoche es: " + super_motor + "cv";

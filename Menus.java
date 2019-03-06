@@ -28,6 +28,15 @@ public class Menus {
 		System.out.println("|---------------------------------|");
 		System.out.print("Selecciona una opcion: ");
 	}
+	
+	protected void menuCliente2() {
+		System.out.println("|-------------------------|");
+		System.out.println("| 1.- Registrarse         |");
+		System.out.println("| 2.- Iniciar sesion      |");
+		System.out.println("| 3.- Salir               |");
+		System.out.println("|-------------------------|");
+		System.out.print("Selecciona una opcion: ");
+	}
 
 	protected void menuEmpleado() {
 		System.out.println("|--------------------------------------------|");

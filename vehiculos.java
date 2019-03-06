@@ -203,6 +203,8 @@ public abstract class vehiculos {
 
 	}
 
+	protected abstract void calcularPrecioTotal(String dias);
+	
 	@Override
 	public String toString() {
 		String mensaje;
