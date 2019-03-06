@@ -3,9 +3,6 @@ public class camion extends vehiculos {
 	private boolean estructura_carga;
 	private int peso;
 	private int PMA; //peso maximo autorizado
-	protected camion() {
-
-	}
 
 	/**
 	 * @param color
