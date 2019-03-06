@@ -84,14 +84,6 @@ public class clientes extends personas {
 		alquileresRealizados.add(V1);
 	}
 
-	/*
-	 * protected void verAlquieresRealizados () {
-	 * 
-	 * System.out.println(" Lista de vehiculos alquilados "); for ( int i = 0; i<
-	 * alquileresRealizados.size(); i++) {
-	 * System.out.println(alquileresRealizados.get(i).toString()); } }
-	 */
-
 	protected void verAlquieresRealizados() {
 
 		System.out.println(" Lista de vehiculos alquilados ");
