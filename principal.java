@@ -14,7 +14,7 @@ public class principal {
 		vehiculos v = null;
 		empleados e1 = null;
 		alquileres a = null;
-		creacionEstatica cr7 = new creacionEstatica();
+		creacionEstatica CrEs = new creacionEstatica();
 		String nombre, apellidos, dni, contraseña, color, matricula, matriculaMayusculas, marca, modelo, bastidor,
 				bastidorMayusculas, estado, combustible, direccion, numCarnet, tipCarnet;
 		String puesto, especialidad, opcion, cadenaSiNo, datoNuevo, fecha, descripcion, valorModificar, dias;
@@ -28,6 +28,7 @@ public class principal {
 		boolean empleadoOAdmin = true;
 		boolean cerrarsesion = false;
 		boolean sesion2 = true;
+		CrEs.creacionFormaEstatica();
 		do {
 			menu.menuPrincipal();
 			opcion = sc.nextLine();
