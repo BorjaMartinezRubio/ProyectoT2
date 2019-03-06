@@ -24,19 +24,11 @@ public class principal {
 		vehiculos v = null;
 		empleados e1 = null;
 		alquileres a = null;
-		 clientes clientePrueba = new clientes("Ivan", "Camps", "05994241G", "1234",
-		 633961105, 18, "Calle de miscojones",
-		 "51056432A", "B", 'N');
-		 gesP.crearPersona(clientePrueba);
-		empleados ceo = new empleados("Javier", "Fernandez Sanchez", "41147918K", "ceo123", 622142364, 26, 5, 5000, "CEO", "Negocios");
+		empleados ceo = new empleados("Javier", "Fernandez Sanchez", "41147918K", "ceo123", 622142364, 26, 5, 5000,
+				"CEO", "Negocios y personal");
 		gesP.crearPersona(ceo);
-		// empleados e2 = new empleados("Ivan", "Camps", "05994241G", "1234", 633961105,
-		// 18, 1, 2500, "Mecanico", "Motor");
-		// gesP.crearPersona(e2);
 		String nombre, apellidos, dni, contraseña, color, matricula, matriculaMayusculas, marca, modelo, bastidor,
 				bastidorMayusculas, estado, combustible, direccion, numCarnet, tipCarnet;
-		final String nombreAdmin = "admin";
-		final String contraseñaAdmin = "admin123";
 		String puesto, especialidad, opcion, cadenaSiNo, datoNuevo, fecha, descripcion, valorModificar, dias;
 		char TipConductor;
 		int telefono, edad, asientos, peso, PMA, carga, cilindrada, super_motor, posicion, antiguedad;
@@ -57,29 +49,25 @@ public class principal {
 				dni = sc.nextLine();
 				System.out.println("Introduce tu contraseña: ");
 				contraseña = sc.nextLine();
-				if (dni.equalsIgnoreCase(nombreAdmin) && contraseña.equalsIgnoreCase(contraseñaAdmin)) {
-					empleadoOAdmin = true;
-				} else {
-					p = gesP.buscarPersonas(dni);
-					if (p instanceof empleados) {
-						if (p.getDni().equalsIgnoreCase(dni) && p.getContraseña().equalsIgnoreCase(contraseña)) {
-							empleadoOAdmin = true;
-						}
-					} else {
-						empleadoOAdmin = false;
+				p = gesP.buscarPersonas(dni);
+				if (p instanceof empleados) {
+					if (p.getDni().equalsIgnoreCase(dni) && p.getContraseña().equalsIgnoreCase(contraseña)) {
+						empleadoOAdmin = true;
 					}
+				} else {
+					empleadoOAdmin = false;
 				}
 				if (empleadoOAdmin) {
 					System.out.println("Has iniciado sesión correctamente");
 					do {
-						p=gesP.buscarPersonas(dni);
+						p = gesP.buscarPersonas(dni);
 						cerrarsesion = false;
 						menu.menuEmpleado();
 						opcion = sc.nextLine();
 						switch (opcion) {
 						case "1":
-							if (((empleados)p).getPuesto().equalsIgnoreCase("ceo")
-									|| ((empleados)p).getPuesto().equalsIgnoreCase("jefe de taller") || dni.equalsIgnoreCase(nombreAdmin)) {
+							if (((empleados) p).getPuesto().equalsIgnoreCase("ceo")
+									|| ((empleados) p).getPuesto().equalsIgnoreCase("jefe de taller")) {
 								System.out.println("Introduce la marca: ");
 								marca = sc.nextLine();
 								System.out.println("Introduce el modelo: ");
@@ -177,8 +165,7 @@ public class principal {
 							}
 							break;
 						case "2":
-							if (!((empleados) p).getPuesto().equalsIgnoreCase("mecanico")
-									|| dni.equalsIgnoreCase(nombreAdmin)) {
+							if (!((empleados) p).getPuesto().equalsIgnoreCase("mecanico")) {
 								System.out.println("Introduce el bastidor del vehículo que quieres modificar: ");
 								bastidor = sc.nextLine();
 								posicion = gesV.buscarPosicion(bastidor);
@@ -195,8 +182,7 @@ public class principal {
 							}
 							break;
 						case "3":
-							if (!((empleados) p).getPuesto().equalsIgnoreCase("mecanico")
-									|| dni.equalsIgnoreCase(nombreAdmin)) {
+							if (!((empleados) p).getPuesto().equalsIgnoreCase("mecanico")) {
 								System.out.println("Introduce el bastidor del vehículo que quieres eliminar: ");
 								bastidor = sc.nextLine();
 								gesV.borrarVehiculos(bastidor);
@@ -205,8 +191,7 @@ public class principal {
 							}
 							break;
 						case "4":
-							if (((empleados) p).getPuesto().equalsIgnoreCase("mecanico")
-									|| dni.equalsIgnoreCase(nombreAdmin)) {
+							if (((empleados) p).getPuesto().equalsIgnoreCase("mecanico")) {
 								p = gesP.buscarPersonas(dni);
 								if (p instanceof empleados) {
 									e1 = (empleados) p;
@@ -234,8 +219,7 @@ public class principal {
 							}
 							break;
 						case "5":
-							if (((empleados) p).getPuesto().equalsIgnoreCase("mecanico")
-									|| dni.equalsIgnoreCase(nombreAdmin)) {
+							if (((empleados) p).getPuesto().equalsIgnoreCase("mecanico")) {
 								System.out.println("Introduce la fecha de la revisión: ");
 								fecha = sc.nextLine();
 								System.out
@@ -256,8 +240,7 @@ public class principal {
 							break;
 						case "6":
 							p = gesP.buscarPersonas(dni);
-							if (((empleados) p).getPuesto().equalsIgnoreCase("ceo")
-									|| dni.equalsIgnoreCase(nombreAdmin)) {
+							if (((empleados) p).getPuesto().equalsIgnoreCase("ceo")) {
 								System.out.println("Introduce el nombre del empleado: ");
 								nombre = sc.nextLine();
 								System.out.println("Introduce los apellidos del empleado: ");
@@ -303,8 +286,7 @@ public class principal {
 							}
 							break;
 						case "7":
-							if (((empleados) p).getPuesto().equalsIgnoreCase("ceo")
-									|| dni.equalsIgnoreCase(nombreAdmin)) {
+							if (((empleados) p).getPuesto().equalsIgnoreCase("ceo")) {
 								System.out.println("Introduce el DNI del empleado que quieres eliminar: ");
 								dni = sc.nextLine();
 								p = gesP.buscarPersonas(dni);
@@ -350,10 +332,10 @@ public class principal {
 				break;
 
 			case "2":
-				
+
 				sesion2 = true;
-				while(sesion2) {
-					
+				while (sesion2) {
+
 					menu.menuCliente2();
 					opcion = sc.nextLine();
 					switch (opcion) {
@@ -383,20 +365,22 @@ public class principal {
 								numCarnet = sc.nextLine();
 								System.out.println("Introduzca el tipo de carnet (A, B, C)");
 								tipCarnet = sc.nextLine();
-								if(tipCarnet.equalsIgnoreCase ("A") || tipCarnet.equalsIgnoreCase ("B") || tipCarnet.equalsIgnoreCase ("C")) {
-								System.out.println("Introduzca la antigüedad del carnet");
-								antiguedad = sc.nextInt();
-								sc.nextLine();
-								if (antiguedad < 2) {
-									TipConductor = 'N';
+								if (tipCarnet.equalsIgnoreCase("A") || tipCarnet.equalsIgnoreCase("B")
+										|| tipCarnet.equalsIgnoreCase("C")) {
+									System.out.println("Introduzca la antigüedad del carnet");
+									antiguedad = sc.nextInt();
+									sc.nextLine();
+									if (antiguedad < 2) {
+										TipConductor = 'N';
+									} else {
+										TipConductor = 'E';
+									}
+									clientes cliente1 = new clientes(nombre, apellidos, dni, contraseña, telefono, edad,
+											direccion, numCarnet, tipCarnet, TipConductor);
+									gesP.crearPersona(cliente1);
 								} else {
-									TipConductor = 'E';
-								}
-								clientes cliente1 = new clientes(nombre, apellidos, dni, contraseña, telefono, edad,
-										direccion, numCarnet, tipCarnet, TipConductor);
-								gesP.crearPersona(cliente1);
-								} else {
-									System.out.println(" Tipo de carnet incorrecto, recuerde que los tipos son 'A', 'B' o 'C'");
+									System.out.println(
+											" Tipo de carnet incorrecto, recuerde que los tipos son 'A', 'B' o 'C'");
 								}
 							} else {
 								System.out.println("Has de tener al menos 18 años para poder registrarte");
@@ -441,7 +425,7 @@ public class principal {
 									matricula = sc.nextLine();
 									v = gesV.buscarVehiculos(matricula);
 									System.out.println("Introduce el numero de días que vas a alquilar el vehículo: ");
-									dias=sc.nextLine();
+									dias = sc.nextLine();
 									v.calcularPrecioTotal(dias);
 									if (v != null) {
 										if (v instanceof coche && ((clientes) p).getTipCarnet().equalsIgnoreCase("B")) {
@@ -460,7 +444,7 @@ public class principal {
 											dni = p.getDni();
 											marca = v.getMarca();
 											modelo = v.getModelo();
-											
+
 											a = new alquileres(nombre, apellidos, dni, marca, modelo, matricula);
 											gesA.añadirAlquiler(a);
 
@@ -600,7 +584,7 @@ public class principal {
 						sesion2 = false;
 
 						break;
-						
+
 					default:
 
 						System.out.println("La opción que has introducido no es válida");
@@ -608,7 +592,7 @@ public class principal {
 						break;
 
 					}
-				} 
+				}
 
 				break;
 
