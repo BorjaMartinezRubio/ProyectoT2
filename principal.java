@@ -417,7 +417,7 @@ public class principal {
 									dias = sc.nextLine();
 									v.calcularPrecioTotal(dias);
 									if (v != null) {
-										if (v instanceof coche && ((clientes) p).getTipCarnet().equalsIgnoreCase("B")) {
+										if ((v instanceof coche || v instanceof furgoneta) && ((clientes) p).getTipCarnet().equalsIgnoreCase("B")) {
 
 											posicion = gesP.buscarPosicion(dni);
 											p = gesP.buscarPersonas(dni);
@@ -589,6 +589,7 @@ public class principal {
 				do {
 					menu.menuInvitado();
 					opcion = sc.nextLine();
+					cerrarsesion = false;
 					switch (opcion) {
 					case "1":
 						gesV.mostrarVehiculos2();
@@ -598,6 +599,7 @@ public class principal {
 						cerrarsesion = true;
 						break;
 					default:
+						System.out.println("La opción que has introducido no es válida");
 						break;
 					}
 				} while (!cerrarsesion);

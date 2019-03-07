@@ -104,7 +104,7 @@ public class GestionVehiculos {
 				v3 = vehiculo1;
 				System.out.println("Vehiculo encontrado");
 				control = false;
-				System.out.println(v3.toString());
+				//System.out.println(v3.toString());
 			}
 		}
 		if (control) {
@@ -160,7 +160,6 @@ public class GestionVehiculos {
 			break;
 		case "estado":
 			if (datoNuevo.equalsIgnoreCase("disponible") || datoNuevo.equalsIgnoreCase("alquilado")) {
-				(listaVehiculos.get(posicion)).setColor(datoNuevo);
 				System.out.println("Estado modificado correctamente");
 				System.out.println("Estado nuevo: " + (listaVehiculos.get(posicion)).getEstado());
 			} else {
@@ -294,7 +293,7 @@ public class GestionVehiculos {
 			System.out.println("Revisión añadida correctamente");
 			System.out.println(listaVehiculos.get(posicion).getListaRevisiones().toString());
 		} else {
-			System.out.println("Bastidor no encontrado");
+			System.out.println("No se ha podido asignar la revision");
 		}
 	}
 

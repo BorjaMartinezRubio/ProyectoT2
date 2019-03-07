@@ -21,7 +21,6 @@ public abstract class personas {
 	 * @param edad
 	 */
 	protected personas(String nombre, String apellidos, String dni, String contraseña, int telefono, int edad) {
-		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;

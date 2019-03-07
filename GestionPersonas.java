@@ -35,6 +35,9 @@ public class GestionPersonas {
 				System.out.println("Persona eliminada correctamente");
 			}
 		}
+		if (control) {
+			System.out.println("Persona no encontrada");
+		}
 	}
 
 	// Mostrar clientes
@@ -99,11 +102,12 @@ public class GestionPersonas {
 	}
 
 	// Modificar persona
-	protected void modificarPersona(int posicion, String queModificar, String loModificado) {
+	protected void modificarPersona(int posicion, String queModifica, String loModificado) {
 
 		int numModificado;
 		double numModificado2;
 		char modificado3;
+		String queModificar = queModifica.toLowerCase();
 
 		switch (queModificar) {
 
@@ -115,7 +119,7 @@ public class GestionPersonas {
 
 			break;
 
-		case "Apellidos":
+		case "apellidos":
 
 			(listaPersonas.get(posicion)).setApellidos(loModificado);
 			System.out.println("Apellidos modificados correctamente");
